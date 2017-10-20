@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\b4df966721e7b111a6c6395eaaad2df792553f3c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_f05e3344cdbec0f09435476c019ea6bef0ad642a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\18b82bfa6dace78667b21398c01e0d7d716ad5b0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="df733e6865d662899ec247e8c3dbff3e0961b8a7">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_050be8c221fe70ffd5563cad1839a8fa0388df5f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\75d2ade96a719940c36643af03622bd609b080fa\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f7b86f1beb2b3625c6a1a5da6b5fc5294b64aea9">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_b512b8240b207582e3222b4a050b4fedccaa2637.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\0b163d9543327de1d7d7fbed36859f8cbd3d7b35\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="1a94a06ec585c9423a3c03bde1f7bf9268f83d66">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_62a80b3de6854080ee309beb8943be996ebc4337.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\bdcf6983d3f78a8d3a50219409c93a6989240fcf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a8655e6077da9526c0c94bf063f1275430ce8574">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_fbc0d30dad6361558089e77d4f18ad3bd5c78efd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\d6cd4958fa89a49fb1bcd1cb132f919d3cb00087\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_2c9d64fa242ecb4489945d6b5e0a98ea7f00b061.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d30ac0c26495d7264529e333cec806eec64dd6f3">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_fa311b0bb4b63a77a8656e494c568cbc7dfc184e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Barbara\AndroidStudioProjects\Testanwendung\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\Testanwendung\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.2.1_fb662cbaf826b6d6c1df3aecc3fdfb6c892513b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="db0171d21d064bab7ad72685f3c7df40544b03a8">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_b4ca2bb8772aa922201e945b7337535a03c58eb0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\26.0.0\db09a97f4f0db8892c1a0111a4b966f97920d082\support-annotations-26.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="db09a97f4f0db8892c1a0111a4b966f97920d082">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\support-annotations-26.0.0_bddfc8abde11b991d31f44329f28b1eb84da6cde.jar" />
+    </item>
+    <item
+        jar="C:\Users\Barbara\AndroidStudioProjects\Testanwendung\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\Testanwendung\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.2.1_649476eb6b9fb008905a46b7891b196c56dc1a73.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\7c5919a70b4e589361c4648e039cd7d918d92c1c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b102f892442929c3457de1ef6a94f5dda3dd8864">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_ca37ff5770bc03afc76d7a608c945993942b79fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\a89a826499e522eb96086070fe1b794f5f18fdd3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="8602ab07133e6ee182726fa27588420dba9d6d55">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_73aecb80a379d45d8903a2bb4de5269bb6ac1bd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\c8c73a9a0898f68aa7ed2e13bae503bef809f009\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="cbb26a4f659b17abc1f75ff735a607aa299697ac">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_4c026e8ad0ead2cfa4160ac5ce62ec427a640f87.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\e453f8d07f434390429be06f09dafe783eae3b6c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="dd2e7a567260ca4e40c09ba330f4f2d318660554">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_0886ce8ca366f588cac555714d409d9c42746cbe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.1.6\b036abbb61656165da99cf44898e4b9123687e65\MPAndroidChart-v2.1.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b036abbb61656165da99cf44898e4b9123687e65">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.1.6_08b26655c45fbac5b01cdbe8522d471ddc466226.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Barbara\.android\build-cache\2263ce8f8126841f6f25af627d0f108ba605a539\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2520dd452fb1f487eba29ccd2d44358f0b8da788">
+        <dex dex="C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\build\intermediates\pre-dexed\debug\classes_1f896086302966f88800001d633c8908fa844514.jar" />
+    </item>
+
+</items>

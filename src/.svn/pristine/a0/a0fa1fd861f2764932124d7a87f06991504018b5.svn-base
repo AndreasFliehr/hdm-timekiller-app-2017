@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\Barbara\\.android\\build-cache\\98aaca16255c2272d112ab949a907ca9787caa6c\\output\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Users\\Barbara\\.android\\build-cache\\1a6488c1588a2918220b754543cc3e971757b6cb\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\Barbara\\.android\\build-cache\\98aaca16255c2272d112ab949a907ca9787caa6c\\output\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
+    }
+]

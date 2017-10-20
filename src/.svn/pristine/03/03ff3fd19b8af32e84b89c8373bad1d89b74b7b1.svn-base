@@ -1,0 +1,753 @@
+[
+    {
+        "outputFile": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\values-ro\\values-ro.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 120,
+                    "endOffset": 171
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 120,
+                        "endOffset": 392
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 176,
+                    "endColumn": 107,
+                    "endOffset": 279
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 397,
+                        "endColumn": 107,
+                        "endOffset": 500
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 284,
+                    "endColumn": 122,
+                    "endOffset": 402
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 505,
+                        "endColumn": 122,
+                        "endOffset": 623
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 407,
+                    "endColumn": 103,
+                    "endOffset": 506
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 628,
+                        "endColumn": 103,
+                        "endOffset": 727
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 511,
+                    "endColumn": 112,
+                    "endOffset": 619
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 732,
+                        "endColumn": 112,
+                        "endOffset": 840
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 624,
+                    "endColumn": 87,
+                    "endOffset": 707
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 845,
+                        "endColumn": 87,
+                        "endOffset": 928
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 712,
+                    "endColumn": 111,
+                    "endOffset": 819
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 933,
+                        "endColumn": 111,
+                        "endOffset": 1040
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 824,
+                    "endColumn": 120,
+                    "endOffset": 940
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1045,
+                        "endColumn": 120,
+                        "endOffset": 1161
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 945,
+                    "endColumn": 82,
+                    "endOffset": 1023
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1166,
+                        "endColumn": 82,
+                        "endOffset": 1244
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1028,
+                    "endColumn": 111,
+                    "endOffset": 1135
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1249,
+                        "endColumn": 111,
+                        "endOffset": 1356
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1140,
+                    "endColumn": 112,
+                    "endOffset": 1248
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1361,
+                        "endColumn": 112,
+                        "endOffset": 1469
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1253,
+                    "endColumn": 99,
+                    "endOffset": 1348
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1474,
+                        "endColumn": 99,
+                        "endOffset": 1569
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1353,
+                    "endColumn": 113,
+                    "endOffset": 1462
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1574,
+                        "endColumn": 113,
+                        "endOffset": 1683
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1467,
+                    "endColumn": 104,
+                    "endOffset": 1567
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1688,
+                        "endColumn": 104,
+                        "endOffset": 1788
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1572,
+                    "endColumn": 105,
+                    "endOffset": 1673
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1793,
+                        "endColumn": 105,
+                        "endOffset": 1894
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1678,
+                    "endColumn": 120,
+                    "endOffset": 1794
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1899,
+                        "endColumn": 120,
+                        "endOffset": 2015
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1799,
+                    "endColumn": 102,
+                    "endOffset": 1897
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 2020,
+                        "endColumn": 102,
+                        "endOffset": 2118
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1902,
+                    "endColumn": 100,
+                    "endOffset": 1998
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2123,
+                        "endColumn": 100,
+                        "endOffset": 2219
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 120,
+                    "endOffset": 171
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 120,
+                        "endOffset": 171
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 176,
+                    "endColumn": 107,
+                    "endOffset": 279
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 176,
+                        "endColumn": 107,
+                        "endOffset": 279
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 284,
+                    "endColumn": 122,
+                    "endOffset": 402
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 284,
+                        "endColumn": 122,
+                        "endOffset": 402
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 407,
+                    "endColumn": 103,
+                    "endOffset": 506
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 407,
+                        "endColumn": 103,
+                        "endOffset": 506
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 511,
+                    "endColumn": 112,
+                    "endOffset": 619
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 511,
+                        "endColumn": 112,
+                        "endOffset": 619
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 624,
+                    "endColumn": 87,
+                    "endOffset": 707
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 624,
+                        "endColumn": 87,
+                        "endOffset": 707
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 712,
+                    "endColumn": 111,
+                    "endOffset": 819
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 712,
+                        "endColumn": 111,
+                        "endOffset": 819
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 824,
+                    "endColumn": 120,
+                    "endOffset": 940
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 824,
+                        "endColumn": 120,
+                        "endOffset": 940
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 945,
+                    "endColumn": 84,
+                    "endOffset": 1025
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 945,
+                        "endColumn": 84,
+                        "endOffset": 1025
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1030,
+                    "endColumn": 80,
+                    "endOffset": 1106
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1030,
+                        "endColumn": 80,
+                        "endOffset": 1106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1111,
+                    "endColumn": 82,
+                    "endOffset": 1189
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1111,
+                        "endColumn": 82,
+                        "endOffset": 1189
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1194,
+                    "endColumn": 111,
+                    "endOffset": 1301
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1194,
+                        "endColumn": 111,
+                        "endOffset": 1301
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1306,
+                    "endColumn": 112,
+                    "endOffset": 1414
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1306,
+                        "endColumn": 112,
+                        "endOffset": 1414
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1419,
+                    "endColumn": 99,
+                    "endOffset": 1514
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1419,
+                        "endColumn": 99,
+                        "endOffset": 1514
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1519,
+                    "endColumn": 113,
+                    "endOffset": 1628
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1519,
+                        "endColumn": 113,
+                        "endOffset": 1628
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1633,
+                    "endColumn": 104,
+                    "endOffset": 1733
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1633,
+                        "endColumn": 104,
+                        "endOffset": 1733
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1738,
+                    "endColumn": 105,
+                    "endOffset": 1839
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1738,
+                        "endColumn": 105,
+                        "endOffset": 1839
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1844,
+                    "endColumn": 120,
+                    "endOffset": 1960
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1844,
+                        "endColumn": 120,
+                        "endOffset": 1960
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1965,
+                    "endColumn": 102,
+                    "endOffset": 2063
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1965,
+                        "endColumn": 102,
+                        "endOffset": 2063
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2068,
+                    "endColumn": 82,
+                    "endOffset": 2146
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2068,
+                        "endColumn": 82,
+                        "endOffset": 2146
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2151,
+                    "endColumn": 100,
+                    "endOffset": 2247
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2151,
+                        "endColumn": 100,
+                        "endOffset": 2247
+                    }
+                }
+            }
+        ]
+    }
+]

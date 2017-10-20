@@ -1,0 +1,105 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:2:1-27:12
+	package
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:3:5-39
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+application
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:5:5-26:15
+MERGED from [com.android.support:design:26.0.0] C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.0.0] C:\Users\Barbara\.android\build-cache\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.0.0] C:\Users\Barbara\.android\build-cache\bdcf6983d3f78a8d3a50219409c93a6989240fcf\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.0.0] C:\Users\Barbara\.android\build-cache\2263ce8f8126841f6f25af627d0f108ba605a539\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.0.0] C:\Users\Barbara\.android\build-cache\18b82bfa6dace78667b21398c01e0d7d716ad5b0\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.0.0] C:\Users\Barbara\.android\build-cache\e453f8d07f434390429be06f09dafe783eae3b6c\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.0.0] C:\Users\Barbara\.android\build-cache\d6cd4958fa89a49fb1bcd1cb132f919d3cb00087\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.0.0] C:\Users\Barbara\.android\build-cache\c8c73a9a0898f68aa7ed2e13bae503bef809f009\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.0.0] C:\Users\Barbara\.android\build-cache\75d2ade96a719940c36643af03622bd609b080fa\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.0.0] C:\Users\Barbara\.android\build-cache\7c5919a70b4e589361c4648e039cd7d918d92c1c\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.0.0] C:\Users\Barbara\.android\build-cache\0b163d9543327de1d7d7fbed36859f8cbd3d7b35\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.0.0] C:\Users\Barbara\.android\build-cache\a89a826499e522eb96086070fe1b794f5f18fdd3\output\AndroidManifest.xml:25:5-29:19
+	android:label
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:9:9-35
+	android:allowBackup
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:10:9-40
+activity#de.hdm.dp.bd.chronophage.MainActivity
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:11:9-20:20
+	android:label
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:13:13-45
+	android:theme
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:14:13-56
+	android:name
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:12:13-65
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:15:13-19:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:16:17-69
+	android:name
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:16:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:18:17-77
+	android:name
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:18:27-74
+activity#de.hdm.dp.bd.chronophage.EvalActivity
+ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:21:9-25:20
+	android:label
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:23:13-50
+	android:theme
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:24:13-56
+	android:name
+		ADDED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml:22:13-65
+uses-sdk
+INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:26.0.0] C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\Barbara\.android\build-cache\b4df966721e7b111a6c6395eaaad2df792553f3c\output\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:appcompat-v7:26.0.0] C:\Users\Barbara\.android\build-cache\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:26.0.0] C:\Users\Barbara\.android\build-cache\bdcf6983d3f78a8d3a50219409c93a6989240fcf\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0] C:\Users\Barbara\.android\build-cache\2263ce8f8126841f6f25af627d0f108ba605a539\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.0.0] C:\Users\Barbara\.android\build-cache\18b82bfa6dace78667b21398c01e0d7d716ad5b0\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.0.0] C:\Users\Barbara\.android\build-cache\e453f8d07f434390429be06f09dafe783eae3b6c\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.0.0] C:\Users\Barbara\.android\build-cache\d6cd4958fa89a49fb1bcd1cb132f919d3cb00087\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0] C:\Users\Barbara\.android\build-cache\c8c73a9a0898f68aa7ed2e13bae503bef809f009\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0] C:\Users\Barbara\.android\build-cache\75d2ade96a719940c36643af03622bd609b080fa\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0] C:\Users\Barbara\.android\build-cache\7c5919a70b4e589361c4648e039cd7d918d92c1c\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.0] C:\Users\Barbara\.android\build-cache\0b163d9543327de1d7d7fbed36859f8cbd3d7b35\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:26.0.0] C:\Users\Barbara\.android\build-cache\a89a826499e522eb96086070fe1b794f5f18fdd3\output\AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.0.0] C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Barbara\AndroidStudioProjects\ChronoPhage_GUI\app\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.0.0] C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.0.0] C:\Users\Barbara\.android\build-cache\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.0.0] C:\Users\Barbara\.android\build-cache\bdcf6983d3f78a8d3a50219409c93a6989240fcf\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.0.0] C:\Users\Barbara\.android\build-cache\2263ce8f8126841f6f25af627d0f108ba605a539\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.0.0] C:\Users\Barbara\.android\build-cache\18b82bfa6dace78667b21398c01e0d7d716ad5b0\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.0.0] C:\Users\Barbara\.android\build-cache\e453f8d07f434390429be06f09dafe783eae3b6c\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.0.0] C:\Users\Barbara\.android\build-cache\d6cd4958fa89a49fb1bcd1cb132f919d3cb00087\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.0.0] C:\Users\Barbara\.android\build-cache\c8c73a9a0898f68aa7ed2e13bae503bef809f009\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.0.0] C:\Users\Barbara\.android\build-cache\75d2ade96a719940c36643af03622bd609b080fa\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.0.0] C:\Users\Barbara\.android\build-cache\7c5919a70b4e589361c4648e039cd7d918d92c1c\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.0.0] C:\Users\Barbara\.android\build-cache\0b163d9543327de1d7d7fbed36859f8cbd3d7b35\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.0.0] C:\Users\Barbara\.android\build-cache\a89a826499e522eb96086070fe1b794f5f18fdd3\output\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:26.0.0] C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:26.0.0] C:\Users\Barbara\.android\build-cache\98aaca16255c2272d112ab949a907ca9787caa6c\output\AndroidManifest.xml:27:13-51

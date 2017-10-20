@@ -1,0 +1,753 @@
+[
+    {
+        "outputFile": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\values-es\\values-es.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 116,
+                    "endOffset": 167
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 116,
+                        "endOffset": 388
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 172,
+                    "endColumn": 107,
+                    "endOffset": 275
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 393,
+                        "endColumn": 107,
+                        "endOffset": 496
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 280,
+                    "endColumn": 122,
+                    "endOffset": 398
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 501,
+                        "endColumn": 122,
+                        "endOffset": 619
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 403,
+                    "endColumn": 112,
+                    "endOffset": 511
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 624,
+                        "endColumn": 112,
+                        "endOffset": 732
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 516,
+                    "endColumn": 107,
+                    "endOffset": 619
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 737,
+                        "endColumn": 107,
+                        "endOffset": 840
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 624,
+                    "endColumn": 84,
+                    "endOffset": 704
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 845,
+                        "endColumn": 84,
+                        "endOffset": 925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 709,
+                    "endColumn": 100,
+                    "endOffset": 805
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 930,
+                        "endColumn": 100,
+                        "endOffset": 1026
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 810,
+                    "endColumn": 127,
+                    "endOffset": 933
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1031,
+                        "endColumn": 127,
+                        "endOffset": 1154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 938,
+                    "endColumn": 81,
+                    "endOffset": 1015
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1159,
+                        "endColumn": 81,
+                        "endOffset": 1236
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1020,
+                    "endColumn": 106,
+                    "endOffset": 1122
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1241,
+                        "endColumn": 106,
+                        "endOffset": 1343
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1127,
+                    "endColumn": 99,
+                    "endOffset": 1222
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1348,
+                        "endColumn": 99,
+                        "endOffset": 1443
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1227,
+                    "endColumn": 98,
+                    "endOffset": 1321
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1448,
+                        "endColumn": 98,
+                        "endOffset": 1542
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1326,
+                    "endColumn": 107,
+                    "endOffset": 1429
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1547,
+                        "endColumn": 107,
+                        "endOffset": 1650
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1434,
+                    "endColumn": 106,
+                    "endOffset": 1536
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1655,
+                        "endColumn": 106,
+                        "endOffset": 1757
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1541,
+                    "endColumn": 106,
+                    "endOffset": 1643
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1762,
+                        "endColumn": 106,
+                        "endOffset": 1864
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1648,
+                    "endColumn": 121,
+                    "endOffset": 1765
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1869,
+                        "endColumn": 121,
+                        "endOffset": 1986
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1770,
+                    "endColumn": 99,
+                    "endOffset": 1865
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1991,
+                        "endColumn": 99,
+                        "endOffset": 2086
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1870,
+                    "endColumn": 100,
+                    "endOffset": 1966
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2091,
+                        "endColumn": 100,
+                        "endOffset": 2187
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 116,
+                    "endOffset": 167
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 116,
+                        "endOffset": 167
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 172,
+                    "endColumn": 107,
+                    "endOffset": 275
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 172,
+                        "endColumn": 107,
+                        "endOffset": 275
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 280,
+                    "endColumn": 122,
+                    "endOffset": 398
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 280,
+                        "endColumn": 122,
+                        "endOffset": 398
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 403,
+                    "endColumn": 112,
+                    "endOffset": 511
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 403,
+                        "endColumn": 112,
+                        "endOffset": 511
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 516,
+                    "endColumn": 107,
+                    "endOffset": 619
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 516,
+                        "endColumn": 107,
+                        "endOffset": 619
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 624,
+                    "endColumn": 84,
+                    "endOffset": 704
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 624,
+                        "endColumn": 84,
+                        "endOffset": 704
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 709,
+                    "endColumn": 100,
+                    "endOffset": 805
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 709,
+                        "endColumn": 100,
+                        "endOffset": 805
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 810,
+                    "endColumn": 127,
+                    "endOffset": 933
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 810,
+                        "endColumn": 127,
+                        "endOffset": 933
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 938,
+                    "endColumn": 84,
+                    "endOffset": 1018
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 938,
+                        "endColumn": 84,
+                        "endOffset": 1018
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1023,
+                    "endColumn": 81,
+                    "endOffset": 1100
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1023,
+                        "endColumn": 81,
+                        "endOffset": 1100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1105,
+                    "endColumn": 81,
+                    "endOffset": 1182
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1105,
+                        "endColumn": 81,
+                        "endOffset": 1182
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1187,
+                    "endColumn": 106,
+                    "endOffset": 1289
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1187,
+                        "endColumn": 106,
+                        "endOffset": 1289
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1294,
+                    "endColumn": 99,
+                    "endOffset": 1389
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1294,
+                        "endColumn": 99,
+                        "endOffset": 1389
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1394,
+                    "endColumn": 98,
+                    "endOffset": 1488
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1394,
+                        "endColumn": 98,
+                        "endOffset": 1488
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1493,
+                    "endColumn": 107,
+                    "endOffset": 1596
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1493,
+                        "endColumn": 107,
+                        "endOffset": 1596
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1601,
+                    "endColumn": 106,
+                    "endOffset": 1703
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1601,
+                        "endColumn": 106,
+                        "endOffset": 1703
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1708,
+                    "endColumn": 106,
+                    "endOffset": 1810
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1708,
+                        "endColumn": 106,
+                        "endOffset": 1810
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1815,
+                    "endColumn": 121,
+                    "endOffset": 1932
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1815,
+                        "endColumn": 121,
+                        "endOffset": 1932
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1937,
+                    "endColumn": 99,
+                    "endOffset": 2032
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1937,
+                        "endColumn": 99,
+                        "endOffset": 2032
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2037,
+                    "endColumn": 81,
+                    "endOffset": 2114
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2037,
+                        "endColumn": 81,
+                        "endOffset": 2114
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2119,
+                    "endColumn": 100,
+                    "endOffset": 2215
+                },
+                "from": {
+                    "file": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\values-es\\values-es.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2119,
+                        "endColumn": 100,
+                        "endOffset": 2215
+                    }
+                }
+            }
+        ]
+    }
+]

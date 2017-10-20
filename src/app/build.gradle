@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.0'
+
+    defaultConfig {
+        applicationId "de.hdm.dp.bd.chronophage"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+
+repositories {
+    //In diesem Repository ist die Library für das Kuchendiagramm zu finden
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:26.0.0'
+    compile 'com.android.support:design:26.0.0'
+
+    //Hier wird angegeben, dass diese Library mit compiliert werden muss (Kuchendiagramm)
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
+}

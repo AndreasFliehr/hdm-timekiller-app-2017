@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\drawable-ldrtl-mdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Barbara\\AndroidStudioProjects\\ChronoPhage_GUI\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\Users\\Barbara\\.android\\build-cache\\f4f3d28bd0fc9f27788a6e2c3353e8ce8c958555\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    }
+]
