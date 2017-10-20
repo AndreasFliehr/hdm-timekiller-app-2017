@@ -49,10 +49,6 @@ public class TaskModel {
 
     @Override
     public String toString() {
-        return "TaskModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", active=" + active +
-                '}';
+        return name;
     }
 }
