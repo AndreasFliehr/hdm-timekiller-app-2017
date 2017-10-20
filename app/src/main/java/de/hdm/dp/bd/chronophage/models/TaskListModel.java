@@ -27,7 +27,7 @@ public class TaskListModel {
         return tasks;
     }
 
-    void createTaskList(){
+    public void createTaskList(){
         tasks = new ArrayList<>();
         tasks.add(new TaskModel(1, "Internet"));
     }
