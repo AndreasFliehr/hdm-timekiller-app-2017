@@ -1,5 +1,6 @@
 package de.hdm.dp.bd.chronophage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,15 +10,23 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
+import de.hdm.dp.bd.chronophage.models.TaskModel;
+
 /**
  * MainActivity ist die Aktivität, die beim Start der App bzw. beim Klick auf den Eintrag
  * "Data input" im Drawer-Menü aufgerufen wird
  */
 public class MainActivity extends CommonActivity {
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    // create TaskList
+    TaskDatabaseInMemoryMock.taskListModel.createTaskList();
+
     /**
      * Nach dem Start der App wird die Ansicht angezeigt, die in der Ressource
      * activity_main.xml definiert ist. In dieser Anwendung ist es die MainActivity.
@@ -71,20 +80,29 @@ public class MainActivity extends CommonActivity {
          * im Listenelement dargestellt wird
          * TODO: hier ggf. den Typ von String auf Task ändern
          */
-        final String item = (String) parent.getItemAtPosition(position);
-
-        /**
-         * TODO: hier ist die anwendungsspezifische Logik zu implementieren:
-         * Momentan wird als Reaktion auf den Benutzerklick ein "Toast"
-         * (Benachrichtigungsfenster) für die Dauer "duration" angezeigt, in dem
-         * als Text das angeklickte Element (item) steht
-         */
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(getApplicationContext(), item, duration);
-        toast.show();
+        final TaskModel task = (TaskModel) parent.getItemAtPosition(position);
+        toggleTask(task);
       }
 
     });
+  }
+
+  private void toggleTask(TaskModel task) {
+    String toastMessage;
+    if (task.isActive()) {
+      // task active, stop it and set Toast-message
+      task.start();
+      toastMessage = task.getName() + " started.";
+    }
+    else {
+      // task not active, start it and set Toast-message
+      task.stop();
+      toastMessage = task.getName() + " stopped.";
+    }
+
+    int duration = Toast.LENGTH_SHORT;
+    Toast toast = Toast.makeText(getApplicationContext(), toastMessage, duration);
+    toast.show();
   }
 
   /**
@@ -102,9 +120,9 @@ public class MainActivity extends CommonActivity {
    */
   private ArrayList<String> getListElements() {
     ArrayList<String> list = new ArrayList<>();
-    list.add("Task 1");
-    list.add("Task 2");
-    list.add("Task 3");
+    for (TaskModel task : TaskDatabaseInMemoryMock.taskListModel.getAllTasks()) {
+      list.add(task.getName());
+    }
     return list;
   }
 }
