@@ -6,6 +6,5 @@ public class TaskDatabaseInMemoryMock {
     public static TaskListModel taskListModel = new TaskListModel();
 
     private TaskDatabaseInMemoryMock() {
-        taskListModel.createTaskList();
     };
 }
