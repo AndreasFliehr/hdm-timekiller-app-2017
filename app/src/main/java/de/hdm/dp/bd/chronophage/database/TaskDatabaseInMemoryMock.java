@@ -3,9 +3,9 @@ package de.hdm.dp.bd.chronophage.database;
 import de.hdm.dp.bd.chronophage.models.TaskListModel;
 
 public class TaskDatabaseInMemoryMock {
-    public TaskListModel taskListModel = new TaskListModel();
+    public static TaskListModel taskListModel = new TaskListModel();
 
-    private TaskDatabaseInMemoryMock(){
+    private TaskDatabaseInMemoryMock() {
         taskListModel.createTaskList();
     };
 }
