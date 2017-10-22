@@ -92,12 +92,12 @@ public class MainActivity extends CommonActivity {
         String toastMessage;
         if (task.isActive()) {
             // task active, stop it and set Toast-message
-            task.start();
-            toastMessage = task.getName() + " started.";
-        } else {
-            // task not active, start it and set Toast-message
             task.stop();
             toastMessage = task.getName() + " stopped.";
+        } else {
+            // task not active, start it and set Toast-message
+            task.start();
+            toastMessage = task.getName() + " started.";
         }
 
         int duration = Toast.LENGTH_SHORT;
