@@ -10,6 +10,10 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
+import de.hdm.dp.bd.chronophage.models.TaskListModel;
+import de.hdm.dp.bd.chronophage.models.TaskModel;
+
 
 /**
  * EvalActivity ist die Aktivität, die beim Klick auf den Eintrag
@@ -54,9 +58,9 @@ public class EvalActivity extends CommonActivity {
 
     ArrayList<Entry> entries = new ArrayList<>();
 
-    entries.add(new Entry(4f, 0));
-    entries.add(new Entry(8f, 1));
-    entries.add(new Entry(6f, 2));
+    for (TaskModel task : TaskDatabaseInMemoryMock.taskListModel.getAllTasks()) {
+      entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
+    }
 
     return entries;
   }
@@ -69,10 +73,13 @@ public class EvalActivity extends CommonActivity {
    */
   private ArrayList<String> getLabels() {
     // creating labels
+
     ArrayList<String> labels = new ArrayList<>();
-    labels.add("Task 1");
-    labels.add("Task 2");
-    labels.add("Task 3");
+
+    for (TaskModel task : TaskDatabaseInMemoryMock.taskListModel.getAllTasks()) {
+      labels.add(task.getName());
+    }
+
     return labels;
   }
 }

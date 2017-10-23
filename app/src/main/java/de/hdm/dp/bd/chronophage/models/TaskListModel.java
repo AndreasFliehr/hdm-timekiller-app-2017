@@ -8,7 +8,6 @@ public class TaskListModel {
     private List<TaskModel> tasks;
 
     public TaskListModel() {
-
     }
 
     public void setTaskActive(TaskModel taskModel) {
@@ -30,5 +29,7 @@ public class TaskListModel {
     public void createTaskList(){
         tasks = new ArrayList<>();
         tasks.add(new TaskModel(1, "Internet"));
+        tasks.add(new TaskModel(2, "Vorlesungen"));
+        tasks.add(new TaskModel(3, "Mails"));
     }
 }

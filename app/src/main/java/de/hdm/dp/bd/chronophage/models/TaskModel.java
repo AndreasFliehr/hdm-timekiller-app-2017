@@ -31,10 +31,12 @@ public class TaskModel {
     public void start() {
         active = true;
         activeRecord = new RecordModel();
+        activeRecord.start();
     }
 
     public void stop() {
         active = false;
+        activeRecord.stop();
         records.add(activeRecord);
         activeRecord = null;
     }
