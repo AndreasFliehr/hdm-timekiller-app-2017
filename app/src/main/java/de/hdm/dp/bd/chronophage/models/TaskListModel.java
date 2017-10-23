@@ -27,9 +27,11 @@ public class TaskListModel {
     }
 
     public void createTaskList(){
-        tasks = new ArrayList<>();
-        tasks.add(new TaskModel(1, "Internet"));
-        tasks.add(new TaskModel(2, "Vorlesungen"));
-        tasks.add(new TaskModel(3, "Mails"));
+        if(tasks == null) {
+            tasks = new ArrayList<>();
+            tasks.add(new TaskModel(1, "Internet"));
+            tasks.add(new TaskModel(2, "Vorlesungen"));
+            tasks.add(new TaskModel(3, "Mails"));
+        }
     }
 }
