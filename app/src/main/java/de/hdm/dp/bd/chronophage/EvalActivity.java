@@ -11,7 +11,6 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 
 import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
-import de.hdm.dp.bd.chronophage.models.TaskListModel;
 import de.hdm.dp.bd.chronophage.models.TaskModel;
 
 
