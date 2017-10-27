@@ -26,8 +26,8 @@ public class TaskListModel {
         return tasks;
     }
 
-    public void createTaskList(){
-        if(tasks == null) {
+    public void createTaskList() {
+        if (tasks == null) {
             tasks = new ArrayList<>();
             tasks.add(new TaskModel(1, "Internet"));
             tasks.add(new TaskModel(2, "Vorlesungen"));

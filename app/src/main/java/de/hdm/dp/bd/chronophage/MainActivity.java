@@ -64,7 +64,7 @@ public class MainActivity extends CommonActivity {
          * in der GUI ab
          */
         final ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, list.getAllTasks());
+            android.R.layout.simple_list_item_1, list.getAllTasks());
         listview.setAdapter(adapter);
 
         /**
