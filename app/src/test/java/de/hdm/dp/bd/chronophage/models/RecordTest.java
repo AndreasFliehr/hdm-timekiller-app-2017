@@ -14,7 +14,7 @@ public class RecordTest {
     }
 
     @Test
-    public void start_newRecord_throwsNoException() throws Exception {
+    public void start_newRecord_executes() throws Exception {
         record.start();
     }
 
@@ -25,7 +25,7 @@ public class RecordTest {
     }
 
     @Test(expected = Exception.class)
-    public void start_recordAlreadyStopped_throwsNoException() throws Exception {
+    public void start_recordAlreadyStopped_throwsException() throws Exception {
         record.start();
         record.stop();
         record.start();
@@ -37,7 +37,7 @@ public class RecordTest {
     }
 
     @Test
-    public void stop_recordStarted_throwsNoException() throws Exception {
+    public void stop_recordStarted_executes() throws Exception {
         record.start();
         record.stop();
     }
