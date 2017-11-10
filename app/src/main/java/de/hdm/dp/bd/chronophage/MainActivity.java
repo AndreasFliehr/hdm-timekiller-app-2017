@@ -8,8 +8,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
-import de.hdm.dp.bd.chronophage.models.TaskListModel;
-import de.hdm.dp.bd.chronophage.models.TaskModel;
+import de.hdm.dp.bd.chronophage.models.TaskList;
+import de.hdm.dp.bd.chronophage.models.Task;
 
 /**
  * MainActivity ist die Aktivität, die beim Start der App bzw. beim Klick auf den Eintrag
@@ -23,7 +23,7 @@ public class MainActivity extends CommonActivity {
         super.onCreate(savedInstanceState);
 
         // create TaskList
-        TaskDatabaseInMemoryMock.taskListModel.createTaskList();
+        TaskDatabaseInMemoryMock.TASK_LIST.createTaskList();
 
         /**
          * Nach dem Start der App wird die Ansicht angezeigt, die in der Ressource
@@ -54,7 +54,7 @@ public class MainActivity extends CommonActivity {
          * TODO: hier ggf. den Rückgabetyp ändern - abhängig davon, wie Sie die Methode getListElements
          * implementieren
          */
-        final TaskListModel list = getListElements();
+        final TaskList list = getListElements();
 
         /**
          * Der Adapter bildet die Elememnte aus der Liste "list" auf Einträge des Listen-Widgets (listview)
@@ -78,14 +78,14 @@ public class MainActivity extends CommonActivity {
                  * im Listenelement dargestellt wird
                  * TODO: hier ggf. den Typ von String auf Task ändern
                  */
-                final TaskModel task = (TaskModel) parent.getItemAtPosition(position);
+                final Task task = (Task) parent.getItemAtPosition(position);
                 toggleTask(task);
             }
 
         });
     }
 
-    private void toggleTask(TaskModel task) {
+    private void toggleTask(Task task) {
         String toastMessage;
         if (task.isActive()) {
             // task active, stop it and set Toast-message
@@ -115,7 +115,7 @@ public class MainActivity extends CommonActivity {
      * 74 (momentan: final String item = (String) parent.getItemAtPosition(position);)
      * ebenfalls geändert werden
      */
-    private TaskListModel getListElements() {
-        return TaskDatabaseInMemoryMock.taskListModel;
+    private TaskList getListElements() {
+        return TaskDatabaseInMemoryMock.TASK_LIST;
     }
 }

@@ -3,14 +3,14 @@ package de.hdm.dp.bd.chronophage.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskModel {
+public class Task {
     private long id;
     private String name;
     private boolean active;
-    private RecordModel activeRecord = null;
-    private List<RecordModel> records = new ArrayList<>();
+    private Record activeRecord = null;
+    private List<Record> records = new ArrayList<>();
 
-    public TaskModel(long id, String name) {
+    public Task(long id, String name) {
         this.id = id;
         this.name = name;
         this.active = false;
@@ -30,7 +30,7 @@ public class TaskModel {
 
     public void start() {
         active = true;
-        activeRecord = new RecordModel();
+        activeRecord = new Record();
         activeRecord.start();
     }
 
@@ -43,7 +43,7 @@ public class TaskModel {
 
     public long getOverallDuration() {
         long overallDuration = 0;
-        for (RecordModel record : records) {
+        for (Record record : records) {
             overallDuration += record.getDuration();
         }
         return overallDuration;

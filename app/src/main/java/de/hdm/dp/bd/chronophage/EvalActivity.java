@@ -11,7 +11,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 
 import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
-import de.hdm.dp.bd.chronophage.models.TaskModel;
+import de.hdm.dp.bd.chronophage.models.Task;
 
 
 /**
@@ -57,7 +57,7 @@ public class EvalActivity extends CommonActivity {
 
         ArrayList<Entry> entries = new ArrayList<>();
 
-        for (TaskModel task : TaskDatabaseInMemoryMock.taskListModel.getAllTasks()) {
+        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
             entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
         }
 
@@ -75,7 +75,7 @@ public class EvalActivity extends CommonActivity {
 
         ArrayList<String> labels = new ArrayList<>();
 
-        for (TaskModel task : TaskDatabaseInMemoryMock.taskListModel.getAllTasks()) {
+        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
             labels.add(task.getName());
         }
 

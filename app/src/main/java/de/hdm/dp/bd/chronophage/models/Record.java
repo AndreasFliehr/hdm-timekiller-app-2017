@@ -2,7 +2,7 @@ package de.hdm.dp.bd.chronophage.models;
 
 import java.util.Date;
 
-public class RecordModel {
+public class Record {
     private long id;
     private Date start;
     private Date end;
