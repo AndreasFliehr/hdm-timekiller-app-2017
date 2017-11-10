@@ -7,7 +7,7 @@ public class Record {
     private Date start;
     private Date end;
 
-    public void start() throws RecordException {
+    public void start() {
         if (start != null) {
             throw new RecordException("StartWasNotSet");
         } else if (end != null) {
@@ -17,7 +17,7 @@ public class Record {
         start = new Date(System.currentTimeMillis());
     }
 
-    public void stop() throws RecordException {
+    public void stop() {
         if (start == null) {
             throw new RecordException("StartWasNotSet");
         } else if (end != null) {
@@ -31,7 +31,7 @@ public class Record {
         return id;
     }
 
-    public long getDuration() throws RecordException {
+    public long getDuration() {
         if (start == null) {
             throw new RecordException("StartWasNotSet");
         } else if (end == null) {
@@ -42,7 +42,7 @@ public class Record {
     }
 }
 
-class RecordException extends Exception {
+class RecordException extends RuntimeException {
     public RecordException(String message) {
         super(message);
     }
