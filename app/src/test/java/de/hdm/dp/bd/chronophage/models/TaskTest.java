@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TaskTest {
-    Task task;
+    private Task task;
 
     @Before
     public void setUp() {

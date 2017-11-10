@@ -5,7 +5,7 @@ import org.junit.Test;
 
 
 public class RecordTest {
-    Record record;
+    private Record record;
 
     @Before
     public void setUp() {
