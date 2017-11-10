@@ -37,4 +37,5 @@ dependencies {
 
     //Hier wird angegeben, dass diese Library mit compiliert werden muss (Kuchendiagramm)
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
+    testCompile 'junit:junit:4.12'
 }
