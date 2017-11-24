@@ -17,7 +17,7 @@ public class TaskTest {
         task.start();
     }
 
-    @Test (expected = Exception.class)
+    @Test (expected = Task.TaskException.class)
     public void start_taskAlreadyStarted_throwsException() {
         task.start();
         task.start();
@@ -29,7 +29,7 @@ public class TaskTest {
         task.stop();
     }
 
-    @Test (expected = Exception.class)
+    @Test (expected = Task.TaskException.class)
     public void stop_taskNotYetStarted_throwsException() {
         task.stop();
     }

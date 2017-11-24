@@ -30,7 +30,7 @@ public class Task {
 
     public void start() {
         if (active) {
-            throw new TaskAlreadyActiveException();
+            throw new TaskException("TaskAlreadyStarted");
         }
         active = true;
         activeRecord = new Record();
@@ -38,6 +38,9 @@ public class Task {
     }
 
     public void stop() {
+        if (!active) {
+            throw new TaskException("TaskNotYetStarted");
+        }
         active = false;
         activeRecord.stop();
         records.add(activeRecord);
@@ -57,6 +60,9 @@ public class Task {
         return name;
     }
 
-    private class TaskAlreadyActiveException extends RuntimeException {
+    public class TaskException extends RuntimeException {
+        private TaskException(String message) {
+            super(message);
+        }
     }
 }
