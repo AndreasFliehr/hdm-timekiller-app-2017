@@ -42,7 +42,7 @@ public class TaskTest {
     @Test
     public void getOverallDuration_taskHasRecord_returnsMoreThanZero() throws Exception {
         task.start();
-        wait(1000);
+        Thread.sleep(1000);
         task.stop();
         Assert.assertTrue(0 < task.getOverallDuration());
     }

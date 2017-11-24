@@ -29,6 +29,9 @@ public class Task {
     }
 
     public void start() {
+        if (active) {
+            throw new TaskAlreadyActiveException();
+        }
         active = true;
         activeRecord = new Record();
         activeRecord.start();
@@ -52,5 +55,8 @@ public class Task {
     @Override
     public String toString() {
         return name;
+    }
+
+    private class TaskAlreadyActiveException extends RuntimeException {
     }
 }
