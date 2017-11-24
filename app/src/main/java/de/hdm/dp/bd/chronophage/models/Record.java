@@ -40,10 +40,10 @@ public class Record {
 
         return end.getTime() - start.getTime();
     }
-}
 
-class RecordException extends RuntimeException {
-    public RecordException(String message) {
-        super(message);
+    public class RecordException extends RuntimeException {
+        private RecordException(String message) {
+            super(message);
+        }
     }
 }
