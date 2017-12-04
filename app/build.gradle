@@ -53,3 +53,47 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
 }
+
+//Konfiguration von Checkstyle, insbesondere Referenz des eigenen Checkstyle-Filestask
+task checkstyle(type: Checkstyle) {
+    //wo liegt das checkstyle-Konfigurationsfile (das sollte auch das
+    //Konfigurationsfile sein, das in AdnroidStudio benutzt wird)
+    configFile file("${project.rootDir}/checkstyle.xml")
+    //optional, wo liegt das File, in dem zu unterdrückende Warnungen stehen
+    configProperties.checkstyleSuppressionsPath = file("${project.rootDir}/config/checkstyle_suppressions.xml").absolutePath
+    source 'src'
+    include '**/*.java' // bei der Analyse durch Checkstyle berücksichtigen
+    exclude '**/gen/**' // bei der Analyse durch Checkstyle nicht berücksichtigen
+
+    //Angabe, welche Report-Formate benutzt und wo sie gespeichert werden
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        xml {
+            destination file("$project.buildDir/reports/checkstyle/checkstyle-results.xml")
+        }
+        html {
+            destination file("$project.buildDir/reports/checkstyle/checkstyle-results.html")
+        }
+    }
+    classpath = files()
+}
+
+/**
+ * notwendiger Workaround für die Benutzung von Checkstyle
+ * Details: http://stackoverflow.com/questions/28749804/how-to-compile-project-with-
+ google-checkstyle-rules-with-gradle */
+
+configurations {
+    checkstyleOverride
+}
+dependencies {
+    checkstyleOverride('com.puppycrawl.tools:checkstyle:7.6.1')
+}
+tasks.withType(Checkstyle) {
+    checkstyleClasspath = project.configurations.checkstyleOverride
+}
+
+/**
+ * Ende des notwendigen Workarounds für die Benutzung von Checkstyle
+ */
