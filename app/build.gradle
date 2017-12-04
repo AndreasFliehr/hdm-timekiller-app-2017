@@ -62,7 +62,7 @@ task checkstyle(type: Checkstyle) {
     configFile file("${project.rootDir}/checkstyle.xml")
     //optional, wo liegt das File, in dem zu unterdrückende Warnungen stehen
     configProperties.checkstyleSuppressionsPath = file("${project.rootDir}/config/checkstyle_suppressions.xml").absolutePath
-    source 'app/src'
+    source 'src'
     include '**/*.java' // bei der Analyse durch Checkstyle berücksichtigen
     exclude '**/gen/**' // bei der Analyse durch Checkstyle nicht berücksichtigen
 
