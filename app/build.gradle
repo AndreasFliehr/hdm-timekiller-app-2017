@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'findbugs'
 
 android {
     compileSdkVersion 26
@@ -78,6 +79,30 @@ task checkstyle(type: Checkstyle) {
         }
     }
     classpath = files()
+}
+
+task customFindbugs(type: FindBugs) {
+    ignoreFailures = true
+    effort = "max"
+    reportLevel = "low"
+    classes = files("$project.buildDir/intermediates/classes")
+    //Dieses File wird normalerweise in Android Studio automatisch
+    //angelegt und enthält alle Files, die nicht durch FindBugs
+    //analysiert werden sollen
+    excludeFilter = file("${project.rootDir}/config/findbugs-android-exclude.xml")
+    source = fileTree('src/main/java/')
+    classpath = files()
+    reports {
+        xml.enabled = true
+        xml.withMessages = true
+        //FindBugs kann immer nur einen Report erzeugen,
+        // entweder xml oder html
+        html.enabled = !xml.enabled
+        xml.destination file("$project.buildDir/reports/findbugs/findbugs-results.xml")
+        html.destination file ("$project.buildDir/reports/findbugs/findbugsresults.html")
+    }
+    // FindBugs benutzt kompilierte Files für die Analyse!
+    dependsOn "compileReleaseJavaWithJavac"
 }
 
 /**
