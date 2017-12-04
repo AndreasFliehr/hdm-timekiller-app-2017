@@ -63,7 +63,7 @@ task checkstyle(type: Checkstyle) {
     configFile file("${project.rootDir}/checkstyle.xml")
     //optional, wo liegt das File, in dem zu unterdrückende Warnungen stehen
     configProperties.checkstyleSuppressionsPath = file("${project.rootDir}/config/checkstyle_suppressions.xml").absolutePath
-    source 'app/src'
+    source 'src'
     include '**/*.java' // bei der Analyse durch Checkstyle berücksichtigen
     exclude '**/gen/**' // bei der Analyse durch Checkstyle nicht berücksichtigen
 
@@ -123,3 +123,36 @@ tasks.withType(Checkstyle) {
 /**
  * Ende des notwendigen Workarounds für die Benutzung von Checkstyle
  */
+
+apply plugin: 'jacoco'
+jacoco {
+    // Use this version for upper ones are broken (with Gradle)
+    // https://github.com/jacoco/jacoco/issues/288
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("$buildDir/reports/jacoco")
+}
+// Einstellung, welche Dateien der Testüberdeckungsanalyse
+// unterzogen werden. Hier: alle Sourcedateien, also auch die
+// Testsourcen
+def coverageSourceDirs = [
+        '../app/src'
+]
+task jacocoTestReport(type: JacocoReport, dependsOn: "test") {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+    classDirectories = fileTree(
+            dir: '../app/build/intermediates/classes',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/BuildConfig*',
+                       '**/Manifest*.*']
+    )
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('../app/build/jacoco/testUnitTestDebug.exec')
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
