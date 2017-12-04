@@ -46,12 +46,10 @@ task checkstyle(type: Checkstyle) {
         xml.enabled = true
         html.enabled = true
         xml {
-            destination
-            file("$project.buildDir/reports/checkstyle/checkstyle-results.xml")
+            destination file("$project.buildDir/reports/checkstyle/checkstyle-results.xml")
         }
         html {
-            destination
-            file("$project.buildDir/reports/checkstyle/checkstyle-results.html")
+            destination file("$project.buildDir/reports/checkstyle/checkstyle-results.html")
         }
     }
     classpath = files()
