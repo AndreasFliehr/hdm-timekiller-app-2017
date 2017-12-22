@@ -76,7 +76,7 @@ public class RecordTest {
     @Test
     public void startsAfter_startedAfterGivenDate_returnsTrue() throws Exception {
         Date now = Date.from(Instant.now());
-        Thread.sleep(1000);
+        Thread.sleep(100);
         record.start();
         assertTrue(record.startsAfter(now));
     }
@@ -84,7 +84,7 @@ public class RecordTest {
     @Test
     public void startsAfter_startedBeforeGivenDate_returnsFalse() throws Exception {
         record.start();
-        Thread.sleep(1000);
+        Thread.sleep(100);
         Date now = Date.from(Instant.now());
         assertFalse(record.startsAfter(now));
     }
@@ -93,7 +93,7 @@ public class RecordTest {
     public void endsBefore_endedBeforeGivenDate_returnsTrue() throws Exception {
         record.start();
         record.stop();
-        Thread.sleep(1000);
+        Thread.sleep(100);
         Date now = Date.from(Instant.now());
         assertTrue(record.endsBefore(now));
     }
@@ -102,7 +102,7 @@ public class RecordTest {
     public void endsBefore_endedAfterGivenDate_returnsFalse() throws Exception {
         record.start();
         Date now = Date.from(Instant.now());
-        Thread.sleep(1000);
+        Thread.sleep(100);
         record.stop();
         assertFalse(record.endsBefore(now));
     }
