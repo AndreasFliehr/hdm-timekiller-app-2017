@@ -103,9 +103,9 @@ public class TaskListTest {
         Task withRecordsBefore = Mockito.mock(Task.class);
         doReturn(withRecords).when(withRecordsBefore).getTaskWithRecordsBefore((Date) any());
         Task withoutRecordsBefore = Mockito.mock(Task.class);
-        doReturn(withoutRecords).when(withRecordsBefore).getTaskWithRecordsBefore((Date) any());
+        doReturn(withoutRecords).when(withoutRecordsBefore).getTaskWithRecordsBefore((Date) any());
         Date testDate = Date.from(Instant.now());
-        taskList.getAllTasks().add(withoutRecords);
+        taskList.getAllTasks().add(withRecordsBefore);
         taskList.getAllTasks().add(withoutRecordsBefore);
         //executeTest
         final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
