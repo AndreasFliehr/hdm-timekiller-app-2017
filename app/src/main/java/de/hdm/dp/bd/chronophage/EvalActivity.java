@@ -78,7 +78,9 @@ public class EvalActivity extends CommonActivity {
         ArrayList<String> labels = new ArrayList<>();
 
         for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
-            labels.add(task.getName());
+            if (task.getOverallDuration() > 0) {
+                labels.add(task.getName());
+            }
         }
 
         return labels;
