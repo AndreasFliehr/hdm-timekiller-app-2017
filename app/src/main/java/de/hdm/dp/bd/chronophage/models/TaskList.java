@@ -8,6 +8,7 @@ public class TaskList {
     private List<Task> tasks;
 
     public TaskList() {
+        tasks = new ArrayList<>();
     }
 
     public void setTaskActive(Task task) {
@@ -38,8 +39,7 @@ public class TaskList {
     }
 
     public void createTaskList() {
-        if (tasks == null) {
-            tasks = new ArrayList<>();
+        if (tasks.isEmpty()) {
             tasks.add(new Task(1, "Internet"));
             tasks.add(new Task(2, "Vorlesungen"));
             tasks.add(new Task(3, "Mails"));
