@@ -132,7 +132,9 @@ public class EvalActivity extends CommonActivity {
         ArrayList<Entry> entries = new ArrayList<>();
 
         for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
-            entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
+            if (task.getOverallDuration() > 0) {
+                entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
+            }
         }
 
         return entries;
@@ -150,7 +152,9 @@ public class EvalActivity extends CommonActivity {
         ArrayList<String> labels = new ArrayList<>();
 
         for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
-            labels.add(task.getName());
+            if (task.getOverallDuration() > 0) {
+                labels.add(task.getName());
+            }
         }
 
         return labels;
