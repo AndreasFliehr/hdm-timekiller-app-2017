@@ -59,11 +59,12 @@ public class TaskListTest {
 
     @Test
     public void getFilteredTasksWithRecordsAfter_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
-        //testSetup
+        //testSetup 1: setup Tasks that will be returned after filtering
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
         Task withoutRecords = Mockito.mock(Task.class);
         doReturn(0L).when(withoutRecords).getOverallDuration();
+        //testSetup 2: setup Tasks that are called with the filtering method
         Task withRecordsAfter = Mockito.mock(Task.class);
         doReturn(withRecords).when(withRecordsAfter).getTaskWithRecordsAfter((Date) any());
         Task withoutRecordsAfter = Mockito.mock(Task.class);
@@ -95,11 +96,12 @@ public class TaskListTest {
 
     @Test
     public void getFilteredTasksWithRecordsBefore_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
-        //testSetup
+        //testSetup 1: setup Tasks that will be returned after filtering
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
         Task withoutRecords = Mockito.mock(Task.class);
         doReturn(0L).when(withoutRecords).getOverallDuration();
+        //testSetup 2: setup Tasks that are called with the filtering method
         Task withRecordsBefore = Mockito.mock(Task.class);
         doReturn(withRecords).when(withRecordsBefore).getTaskWithRecordsBefore((Date) any());
         Task withoutRecordsBefore = Mockito.mock(Task.class);
