@@ -4,9 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
@@ -41,18 +44,89 @@ public class TaskListTest {
     @Test
     public void getAllTasksWithRecords_oneTaskWithRecordsOneWithout_returnsListWithTaskWithRecord() {
         //test setup
-        TaskList test = new TaskList();
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
         Task withoutRecords = Mockito.mock(Task.class);
         doReturn(0L).when(withoutRecords).getOverallDuration();
-        test.getAllTasks().add(withoutRecords);
-        test.getAllTasks().add(withRecords);
+        taskList.getAllTasks().add(withoutRecords);
+        taskList.getAllTasks().add(withRecords);
         //execute test
-        final List<Task> tasksWithRecords = test.getAllTasksWithRecords();
+        final List<Task> tasksWithRecords = taskList.getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));
+    }
+
+    @Test
+    public void getFilteredTasksWithRecordsAfter_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
+        //testSetup
+        Task withRecords = Mockito.mock(Task.class);
+        doReturn(1L).when(withRecords).getOverallDuration();
+        Task withoutRecords = Mockito.mock(Task.class);
+        doReturn(0L).when(withoutRecords).getOverallDuration();
+        Task withRecordsAfter = Mockito.mock(Task.class);
+        doReturn(withRecords).when(withRecordsAfter).getWithRecordsAfter((Date) any());
+        Task withoutRecordsAfter = Mockito.mock(Task.class);
+        doReturn(withoutRecords).when(withoutRecordsAfter).getWithRecordsAfter((Date) any());
+        Date testDate = Date.from(Instant.now());
+        taskList.getAllTasks().add(withRecordsAfter);
+        taskList.getAllTasks().add(withoutRecordsAfter);
+        //executeTest
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasks();
+        assertNotNull(tasksWithRecords);
+        assertTrue(tasksWithRecords.contains(withRecords));
+        assertFalse(tasksWithRecords.contains(withoutRecords));
+    }
+
+    @Test
+    public void getFilteredTasksWithRecordsAfter_noTasksWithRecordsAfter_returnsEmptyList() {
+        //testSetup
+        Task withoutRecords = Mockito.mock(Task.class);
+        doReturn(0L).when(withoutRecords).getOverallDuration();
+        Task withoutRecordsAfter = Mockito.mock(Task.class);
+        doReturn(withoutRecords).when(withoutRecordsAfter).getWithRecordsAfter((Date) any());
+        Date testDate = Date.from(Instant.now());
+        taskList.getAllTasks().add(withoutRecordsAfter);
+        //executeTest
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasks();
+        assertNotNull(tasksWithRecords);
+        assertTrue(tasksWithRecords.isEmpty());
+    }
+
+    @Test
+    public void getFilteredTasksWithRecordsBefore_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
+        //testSetup
+        Task withRecords = Mockito.mock(Task.class);
+        doReturn(1L).when(withRecords).getOverallDuration();
+        Task withoutRecords = Mockito.mock(Task.class);
+        doReturn(0L).when(withoutRecords).getOverallDuration();
+        Task withRecordsBefore = Mockito.mock(Task.class);
+        doReturn(withRecords).when(withRecordsBefore).getWithRecordsBefore((Date) any());
+        Task withoutRecordsBefore = Mockito.mock(Task.class);
+        doReturn(withoutRecords).when(withRecordsBefore).getWithRecordsBefore((Date) any());
+        Date testDate = Date.from(Instant.now());
+        taskList.getAllTasks().add(withoutRecords);
+        taskList.getAllTasks().add(withoutRecordsBefore);
+        //executeTest
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
+        assertNotNull(tasksWithRecords);
+        assertTrue(tasksWithRecords.contains(withRecords));
+        assertFalse(tasksWithRecords.contains(withoutRecords));
+    }
+
+    @Test
+    public void getFilteredTasksWithRecordsBefore_noTasksWithRecordsBefore_returnsEmptyList() {
+        //testSetup
+        Task withoutRecords = Mockito.mock(Task.class);
+        doReturn(0L).when(withoutRecords).getOverallDuration();
+        Task withoutRecordsBefore = Mockito.mock(Task.class);
+        doReturn(withoutRecords).when(withoutRecordsBefore).getWithRecordsBefore((Date) any());
+        Date testDate = Date.from(Instant.now());
+        taskList.getAllTasks().add(withoutRecordsBefore);
+        //executeTest
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
+        assertNotNull(tasksWithRecords);
+        assertTrue(tasksWithRecords.isEmpty());
     }
 
 }
