@@ -58,7 +58,9 @@ public class EvalActivity extends CommonActivity {
         ArrayList<Entry> entries = new ArrayList<>();
 
         for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
-            entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
+            if (task.getOverallDuration() > 0) {
+                entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
+            }
         }
 
         return entries;
