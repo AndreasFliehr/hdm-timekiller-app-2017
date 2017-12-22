@@ -1,6 +1,7 @@
 package de.hdm.dp.bd.chronophage.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TaskList {
@@ -36,6 +37,10 @@ public class TaskList {
             }
         }
         return tasksWithRecords;
+    }
+
+    public List<Task> getFilteredTasksWithRecordsAfter(Date after) {
+        return new ArrayList<>();
     }
 
     public void createTaskList() {
