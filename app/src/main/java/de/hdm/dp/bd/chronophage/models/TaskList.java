@@ -12,6 +12,10 @@ public class TaskList {
         tasks = new ArrayList<>();
     }
 
+    public TaskList(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public void setTaskActive(Task task) {
         task.start();
     }
@@ -39,8 +43,28 @@ public class TaskList {
         return tasksWithRecords;
     }
 
-    public List<Task> getFilteredTasksWithRecordsAfter(Date after) {
-        return new ArrayList<>();
+    public TaskList getFilteredTasksWithRecordsAfter(Date after) {
+        ArrayList<Task> tasks = new ArrayList<>();
+
+        for (Task task: this.tasks) {
+            Task filtered = task.getTaskWithRecordsAfter(after);
+            if (filtered.getOverallDuration() > 0) {
+                tasks.add(filtered);
+            }
+        }
+        return new TaskList(tasks);
+    }
+
+    public TaskList getFilteredTasksWithRecordsBefore(Date before) {
+        ArrayList<Task> tasks = new ArrayList<>();
+
+        for (Task task: this.tasks) {
+            Task filtered = task.getTaskWithRecordsBefore(before);
+            if (filtered.getOverallDuration() > 0) {
+                tasks.add(filtered);
+            }
+        }
+        return new TaskList(tasks);
     }
 
     public void createTaskList() {
