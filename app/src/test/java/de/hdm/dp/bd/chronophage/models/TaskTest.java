@@ -53,7 +53,8 @@ public class TaskTest {
         Assert.assertTrue(0 < task.getOverallDuration());
     }
 
-    public void getWithRecordsBefore_noRecordsBefore_overallDurationIsZero() throws Exception {
+    @Test
+    public void getTaskWithRecordsBefore_noRecordsBefore_overallDurationIsZero() throws Exception {
         //setup: get date before recording once
         final Date now = Date.from(Instant.now());
         Thread.sleep(100);
@@ -61,11 +62,12 @@ public class TaskTest {
         Thread.sleep(100);
         task.stop();
         // test
-        Task before = task.getWithRecordsBefore(now);
+        Task before = task.getTaskWithRecordsBefore(now);
         assertEquals(0, before.getOverallDuration());
     }
 
-    public void getWithRecordsBefore_onlyRecordsBefore_overallDurationIsUnchanged() throws Exception {
+    @Test
+    public void getTaskWithRecordsBefore_onlyRecordsBefore_overallDurationIsUnchanged() throws Exception {
         //setup: record once before getting date
         task.start();
         Thread.sleep(100);
@@ -74,11 +76,12 @@ public class TaskTest {
         final Date now = Date.from(Instant.now());
         //test
         final long overallDurationWithoutFilter = task.getOverallDuration();
-        Task before = task.getWithRecordsBefore(now);
+        Task before = task.getTaskWithRecordsBefore(now);
         assertEquals(overallDurationWithoutFilter, before.getOverallDuration());
     }
 
-    public void getWithRecordsBefore_oneRecodBeforeOneAfter_onlyDurationOfRecordBeforeReturned() throws Exception {
+    @Test
+    public void getTaskWithRecordsBefore_oneRecodBeforeOneAfter_onlyDurationOfRecordBeforeReturned() throws Exception {
         //setup: record once before getting date
         task.start();
         Thread.sleep(100);
@@ -92,11 +95,12 @@ public class TaskTest {
         //ensure setup worked
         assertNotEquals(task.getOverallDuration(), overallDurationWithOneRecord);
         //test
-        Task before = task.getWithRecordsBefore(now);
+        Task before = task.getTaskWithRecordsBefore(now);
         assertEquals(overallDurationWithOneRecord, before.getOverallDuration());
     }
 
-    public void getWithRecordsAfter_noRecordsAfter_overallDurationIsZero() throws Exception {
+    @Test
+    public void getTaskWithRecordsAfter_noRecordsAfter_overallDurationIsZero() throws Exception {
         //setup: get date after recording once
         task.start();
         Thread.sleep(100);
@@ -104,11 +108,12 @@ public class TaskTest {
         Thread.sleep(100);
         final Date now = Date.from(Instant.now());
         // test
-        Task before = task.getWithRecordsAfter(now);
+        Task before = task.getTaskWithRecordsAfter(now);
         assertEquals(0, before.getOverallDuration());
     }
 
-    public void getWithRecordsAfter_onlyRecordsAfter_overallDurationIsUnchanged() throws Exception {
+    @Test
+    public void getTaskWithRecordsAfter_onlyRecordsAfter_overallDurationIsUnchanged() throws Exception {
         //setup: record once before getting date
         final Date now = Date.from(Instant.now());
         Thread.sleep(100);
@@ -117,17 +122,19 @@ public class TaskTest {
         task.stop();
         //test
         final long overallDurationWithoutFilter = task.getOverallDuration();
-        Task before = task.getWithRecordsAfter(now);
+        Task before = task.getTaskWithRecordsAfter(now);
         assertEquals(overallDurationWithoutFilter, before.getOverallDuration());
     }
 
-    public void getWithRecordsAfter_oneRecodBeforeOneAfter_onlyDurationOfRecordAfterReturned() throws Exception {
+    @Test
+    public void getTaskWithRecordsAfter_oneRecodBeforeOneAfter_onlyDurationOfRecordAfterReturned() throws Exception {
         //setup: record once before getting date
         task.start();
         Thread.sleep(100);
         task.stop();
         Thread.sleep(100);
         final Date now = Date.from(Instant.now());
+        Thread.sleep(100);
         final long overallDurationWithOneRecord = task.getOverallDuration();
         task.start();
         Thread.sleep(100);
@@ -136,7 +143,7 @@ public class TaskTest {
         //ensure setup worked
         assertNotEquals(task.getOverallDuration(), durationOfRecordAfter);
         //test
-        Task before = task.getWithRecordsAfter(now);
+        Task before = task.getTaskWithRecordsAfter(now);
         assertEquals(durationOfRecordAfter, before.getOverallDuration());
     }
 }
