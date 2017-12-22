@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -14,12 +15,16 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
 import de.hdm.dp.bd.chronophage.models.Task;
+import de.hdm.dp.bd.chronophage.models.TaskList;
 
 
 /**
@@ -27,8 +32,11 @@ import de.hdm.dp.bd.chronophage.models.Task;
  * "Evaluation" im Drawer-Menü aufgerufen wird
  */
 public class EvalActivity extends CommonActivity {
+    public static final String START_DATE_DEFAULT_TEXT = "Start date";
+    public static final String END_DATE_DEFAULT_TEXT = "End date";
     private EditText startDateEditText;
     private EditText endDateEditText;
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     /**
      * diese Methode muss nicht verändert werden, sie baut das Kuchendiagramm auf
@@ -87,8 +95,8 @@ public class EvalActivity extends CommonActivity {
         startDateEditText.setInputType(InputType.TYPE_NULL);
         endDateEditText.setInputType(InputType.TYPE_NULL);
 
-        startDateEditText.setText("Start date");
-        endDateEditText.setText("End date");
+        startDateEditText.setText(START_DATE_DEFAULT_TEXT);
+        endDateEditText.setText(END_DATE_DEFAULT_TEXT);
 
         // register from edit text listener
         startDateEditText.setOnClickListener(new View.OnClickListener() {
@@ -111,31 +119,46 @@ public class EvalActivity extends CommonActivity {
     }
 
     private void openDatePicker(int year, int month, int day, EditText dateEditText) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Calendar date = Calendar.getInstance();
         date.set(year, month, day);
-        dateEditText.setText(simpleDateFormat.format(date.getTime()));
+        dateEditText.setText(dateFormat.format(date.getTime()));
     }
 
-    /**
-     * TODO: diese Methode muss anwendungsspezifisch überschrieben werden.
-     * Sie liefert eine Liste von Zahlen zurück, die im Kuchendiagramm angezeigt werden.
-     * Die Zahlen werden in einem Entry-Objekt gespeichert: es enthält die darzustellende
-     * Zahl sowie einen eindeutigen Index. Der Index dient zur Festlegung der Reihenfolge
-     * der Entries
-     * In der Zeitfresser-Anwendung entsprechen die Zahlen den Task-Dauern,
-     * die im Kuchendiagramm angezeigt werden sollen
-     */
     private ArrayList<Entry> getEntries() {
         // creating data values
 
         ArrayList<Entry> entries = new ArrayList<>();
 
-        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasksWithRecords()) {
+        for (Task task : getTasksInFilter()) {
             entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
         }
 
         return entries;
+    }
+
+    private List<Task> getTasksInFilter() {
+        TaskList taskList = TaskDatabaseInMemoryMock.TASK_LIST;
+        final String startDateString = startDateEditText.getText().toString();
+        if(!startDateString.equals(START_DATE_DEFAULT_TEXT)) {
+            try {
+                Date startDate = dateFormat.parse(startDateString);
+                taskList = taskList.getFilteredTasksWithRecordsAfter(startDate);
+            } catch (ParseException e) {
+                Log.e(this.getClass().getName(), e.getMessage());
+                Toast.makeText(this, "Could not filter using start date", Toast.LENGTH_SHORT).show();
+            }
+        }
+        final String endDateString = endDateEditText.getText().toString();
+        if(!endDateString.equals(END_DATE_DEFAULT_TEXT)) {
+            try {
+                Date endDate = dateFormat.parse(endDateString);
+                taskList = taskList.getFilteredTasksWithRecordsBefore(endDate);
+            } catch (ParseException e) {
+                Log.e(this.getClass().getName(), e.getMessage());
+                Toast.makeText(this, "Could not filter using end date", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return taskList.getAllTasksWithRecords();
     }
 
     /**
@@ -149,7 +172,7 @@ public class EvalActivity extends CommonActivity {
 
         ArrayList<String> labels = new ArrayList<>();
 
-        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasksWithRecords()) {
+        for (Task task : getTasksInFilter()) {
             labels.add(task.getName());
         }
 
