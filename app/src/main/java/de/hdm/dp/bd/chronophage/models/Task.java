@@ -1,7 +1,9 @@
 package de.hdm.dp.bd.chronophage.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Task {
     private long id;
@@ -14,6 +16,13 @@ public class Task {
         this.id = id;
         this.name = name;
         this.active = false;
+    }
+
+    public Task(ArrayList<Record> taskWithRecords) {
+        this.id = id;
+        this.name = name;
+        this.active = false;
+        records = taskWithRecords;
     }
 
     public boolean isActive() {
@@ -53,6 +62,28 @@ public class Task {
             overallDuration += record.getDuration();
         }
         return overallDuration;
+    }
+
+    public Task getTaskWithRecordsBefore(Date date) {
+        ArrayList<Record> taskWithRecords = new ArrayList<>();
+
+        for (Record record: records) {
+            if (record.endsBefore(date)) {
+                taskWithRecords.add(record);
+            }
+        }
+        return new Task(taskWithRecords);
+    }
+
+    public Task getTaskWithRecordsAfter(Date date) {
+        ArrayList<Record> taskWithRecords = new ArrayList<>();
+
+        for (Record record: records) {
+            if (record.startsAfter(date)) {
+                taskWithRecords.add(record);
+            }
+        }
+        return new Task(taskWithRecords);
     }
 
     @Override
