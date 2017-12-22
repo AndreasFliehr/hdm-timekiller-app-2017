@@ -10,9 +10,47 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/app_bar_eval"
     tools:context=".EvalActivity">
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/chart"
+    <LinearLayout
+        android:id="@+id/dateFilter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/startDateEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="7"
+            android:focusable="false"
+            android:inputType="date"
+            android:maxLength="10"
+            android:maxWidth="50dp"/>
+
+        <EditText
+            android:id="@+id/endDateEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="7"
+            android:focusable="false"
+            android:inputType="date"
+            android:maxLength="10"
+            android:maxWidth="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/dateFilter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 
 </RelativeLayout>
