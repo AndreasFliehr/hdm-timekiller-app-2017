@@ -41,6 +41,14 @@ public class Record {
         return end.getTime() - start.getTime();
     }
 
+    public boolean startsAfter(Date date) {
+        return start.after(date);
+    }
+
+    public boolean endsBefore(Date date) {
+        return end.before(date);
+    }
+
     public class RecordException extends RuntimeException {
         private RecordException(String message) {
             super(message);
