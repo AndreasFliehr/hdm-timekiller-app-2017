@@ -26,6 +26,17 @@ public class TaskList {
         return tasks;
     }
 
+    public List<Task> getAllTasksWithRecords() {
+        ArrayList<Task> tasksWithRecords = new ArrayList<>();
+
+        for (Task task: tasks) {
+            if (task.getOverallDuration() > 0) {
+                tasksWithRecords.add(task);
+            }
+        }
+        return tasksWithRecords;
+    }
+
     public void createTaskList() {
         if (tasks == null) {
             tasks = new ArrayList<>();

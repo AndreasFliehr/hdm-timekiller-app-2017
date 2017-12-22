@@ -131,10 +131,8 @@ public class EvalActivity extends CommonActivity {
 
         ArrayList<Entry> entries = new ArrayList<>();
 
-        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
-            if (task.getOverallDuration() > 0) {
-                entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
-            }
+        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasksWithRecords()) {
+            entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
         }
 
         return entries;
@@ -151,10 +149,8 @@ public class EvalActivity extends CommonActivity {
 
         ArrayList<String> labels = new ArrayList<>();
 
-        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasks()) {
-            if (task.getOverallDuration() > 0) {
-                labels.add(task.getName());
-            }
+        for (Task task : TaskDatabaseInMemoryMock.TASK_LIST.getAllTasksWithRecords()) {
+            labels.add(task.getName());
         }
 
         return labels;
