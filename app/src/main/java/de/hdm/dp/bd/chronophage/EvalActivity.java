@@ -37,6 +37,7 @@ public class EvalActivity extends CommonActivity {
     private EditText startDateEditText;
     private EditText endDateEditText;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+    private PieChart pieChart;
 
     /**
      * diese Methode muss nicht verändert werden, sie baut das Kuchendiagramm auf
@@ -52,7 +53,7 @@ public class EvalActivity extends CommonActivity {
         endDateEditText = (EditText) findViewById(R.id.endDateEditText);
 
         //Content of the pie chart
-        PieChart pieChart = (PieChart) findViewById(R.id.chart);
+        pieChart = (PieChart) findViewById(R.id.chart);
 
         PieDataSet dataset = new PieDataSet(getEntries(), "Time spent");
 
@@ -74,22 +75,25 @@ public class EvalActivity extends CommonActivity {
         final DatePickerDialog startDatePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                //TODO hier wird die Reaktion auf as vom Benutzer eeingegebene Datum reagiert
-                //Hier: Anzeige des Datums im Textfeld
                 openDatePicker(year, month, day, startDateEditText);
+                updatePieChart();
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
-            .DAY_OF_MONTH));
+                .DAY_OF_MONTH));
 
         final DatePickerDialog endDatePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                //TODO hier wird die Reaktion auf as vom Benutzer eeingegebene Datum reagiert
-                //Hier: Anzeige des Datums im Textfeld
-                openDatePicker(year, month, day, endDateEditText);
+                if (afterStart(year, month, day)) {
+                    openDatePicker(year, month, day, endDateEditText);
+                    updatePieChart();
+                } else {
+                    final Toast toast = Toast.makeText(getApplicationContext(), "EndDate must be after start!", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
-            .DAY_OF_MONTH));
+                .DAY_OF_MONTH));
 
         // prevent showing keyboard
         startDateEditText.setInputType(InputType.TYPE_NULL);
@@ -118,64 +122,66 @@ public class EvalActivity extends CommonActivity {
         });
     }
 
+    private boolean afterStart(int year, int month, int day) {
+        try {
+            final Date start = dateFormat.parse(startDateEditText.getText().toString());
+            Date end = new Date(year, month, day);
+            return end.after(start);
+        } catch (ParseException e) {
+            Log.e(this.getClass().getSimpleName(), "Parsing date from startDateText failed " + e);
+            return true;
+        }
+    }
+
     private void openDatePicker(int year, int month, int day, EditText dateEditText) {
         Calendar date = Calendar.getInstance();
         date.set(year, month, day);
         dateEditText.setText(dateFormat.format(date.getTime()));
     }
 
+    private void updatePieChart() {
+        PieDataSet dataset = new PieDataSet(getEntries(), "Time spent");
+        PieData data = new PieData(getLabels(), dataset);
+        pieChart.setData(data);
+        pieChart.invalidate();
+    }
+
     private ArrayList<Entry> getEntries() {
-        // creating data values
-
         ArrayList<Entry> entries = new ArrayList<>();
-
         for (Task task : getTasksInFilter()) {
             entries.add(new Entry(task.getOverallDuration(), (int) task.getId()));
         }
-
         return entries;
     }
 
     private List<Task> getTasksInFilter() {
         TaskList taskList = TaskDatabaseInMemoryMock.TASK_LIST;
         final String startDateString = startDateEditText.getText().toString();
-        if(!startDateString.equals(START_DATE_DEFAULT_TEXT)) {
+        if (!startDateString.equals(START_DATE_DEFAULT_TEXT)) {
             try {
                 Date startDate = dateFormat.parse(startDateString);
                 taskList = taskList.getFilteredTasksWithRecordsAfter(startDate);
             } catch (ParseException e) {
                 Log.e(this.getClass().getName(), e.getMessage());
-                Toast.makeText(this, "Could not filter using start date", Toast.LENGTH_SHORT).show();
             }
         }
         final String endDateString = endDateEditText.getText().toString();
-        if(!endDateString.equals(END_DATE_DEFAULT_TEXT)) {
+        if (!endDateString.equals(END_DATE_DEFAULT_TEXT)) {
             try {
                 Date endDate = dateFormat.parse(endDateString);
                 taskList = taskList.getFilteredTasksWithRecordsBefore(endDate);
             } catch (ParseException e) {
                 Log.e(this.getClass().getName(), e.getMessage());
-                Toast.makeText(this, "Could not filter using end date", Toast.LENGTH_SHORT).show();
             }
         }
         return taskList.getAllTasksWithRecords();
     }
 
-    /**
-     * TODO: diese Methode muss anwendungsspezifisch überschrieben werden.
-     * Sie liefert eine Liste von Labels zurück, mit denen die Zahlen aus der Methode "getEntries"
-     * im Kuchendiagramm beschriftet werden. Die Reihenfolge der Labels muss zu der Reihenfolge
-     * der Entries passen
-     */
     private ArrayList<String> getLabels() {
-        // creating labels
-
         ArrayList<String> labels = new ArrayList<>();
-
         for (Task task : getTasksInFilter()) {
             labels.add(task.getName());
         }
-
         return labels;
     }
 }
