@@ -75,8 +75,13 @@ public class EvalActivity extends CommonActivity {
         final DatePickerDialog startDatePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                openDatePicker(year, month, day, startDateEditText);
-                updatePieChart();
+                if (beforeEnd(year, month, day)) {
+                    openDatePicker(year, month, day, startDateEditText);
+                    updatePieChart();
+                } else {
+                    final Toast toast = Toast.makeText(getApplicationContext(), "Start Date must be before end!", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
                 .DAY_OF_MONTH));
@@ -88,7 +93,7 @@ public class EvalActivity extends CommonActivity {
                     openDatePicker(year, month, day, endDateEditText);
                     updatePieChart();
                 } else {
-                    final Toast toast = Toast.makeText(getApplicationContext(), "EndDate must be after start!", Toast.LENGTH_LONG);
+                    final Toast toast = Toast.makeText(getApplicationContext(), "End Date must be after start!", Toast.LENGTH_LONG);
                     toast.show();
                 }
             }
@@ -125,8 +130,23 @@ public class EvalActivity extends CommonActivity {
     private boolean afterStart(int year, int month, int day) {
         try {
             final Date start = dateFormat.parse(startDateEditText.getText().toString());
-            Date end = new Date(year, month, day);
+            Calendar date = Calendar.getInstance();
+            date.set(year, month, day);
+            Date end = date.getTime();
             return end.after(start);
+        } catch (ParseException e) {
+            Log.e(this.getClass().getSimpleName(), "Parsing date from startDateText failed " + e);
+            return true;
+        }
+    }
+
+    private boolean beforeEnd(int year, int month, int day) {
+        try {
+            final Date end = dateFormat.parse(endDateEditText.getText().toString());
+            Calendar date = Calendar.getInstance();
+            date.set(year, month, day);
+            Date start = date.getTime();
+            return start.before(end);
         } catch (ParseException e) {
             Log.e(this.getClass().getSimpleName(), "Parsing date from startDateText failed " + e);
             return true;
