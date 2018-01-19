@@ -141,6 +141,8 @@ public class EvalActivity extends CommonActivity {
 
     private void updatePieChart() {
         PieDataSet dataset = new PieDataSet(getEntries(), "Time spent");
+        dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataset.setValueTextSize(16);
         PieData data = new PieData(getLabels(), dataset);
         pieChart.setData(data);
         pieChart.invalidate();
