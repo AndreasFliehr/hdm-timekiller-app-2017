@@ -18,7 +18,7 @@ public class Task {
         this.active = false;
     }
 
-    public Task(ArrayList<Record> taskWithRecords) {
+    public Task(long id, String name, ArrayList<Record> taskWithRecords) {
         this.id = id;
         this.name = name;
         this.active = false;
@@ -67,23 +67,23 @@ public class Task {
     public Task getTaskWithRecordsBefore(Date date) {
         ArrayList<Record> taskWithRecords = new ArrayList<>();
 
-        for (Record record: records) {
+        for (Record record : records) {
             if (record.endsBefore(date)) {
                 taskWithRecords.add(record);
             }
         }
-        return new Task(taskWithRecords);
+        return new Task(this.getId(), this.getName(), taskWithRecords);
     }
 
     public Task getTaskWithRecordsAfter(Date date) {
         ArrayList<Record> taskWithRecords = new ArrayList<>();
 
-        for (Record record: records) {
+        for (Record record : records) {
             if (record.startsAfter(date)) {
                 taskWithRecords.add(record);
             }
         }
-        return new Task(taskWithRecords);
+        return new Task(this.getId(), this.getName(), taskWithRecords);
     }
 
     @Override
