@@ -1,18 +1,26 @@
 package de.hdm.dp.bd.chronophage.models;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import de.hdm.dp.bd.chronophage.models.db.DbCalls;
+
 public class TaskList {
+
+    private final DbCalls db;
 
     private List<Task> tasks;
 
-    public TaskList() {
+    public TaskList(DbCalls db) {
+        this.db = db;
         tasks = new ArrayList<>();
     }
 
-    public TaskList(List<Task> tasks) {
+    public TaskList(DbCalls db, List<Task> tasks) {
+        this.db = db;
         this.tasks = tasks;
     }
 
@@ -28,11 +36,12 @@ public class TaskList {
         return task.isActive();
     }
 
-    public List<Task> getAllTasks() {
-        return tasks;
+    public List<Task> getAllTasks(Context context) {
+        return db.getTaskObjects(context);
     }
 
-    public List<Task> getAllTasksWithRecords() {
+    public List<Task> getAllTasksWithRecords(Context context) {
+        this.tasks = db.getTasksWithRecords(context);
         ArrayList<Task> tasksWithRecords = new ArrayList<>();
 
         for (Task task: tasks) {
@@ -52,7 +61,7 @@ public class TaskList {
                 tasks.add(filtered);
             }
         }
-        return new TaskList(tasks);
+        return new TaskList(db, tasks);
     }
 
     public TaskList getFilteredTasksWithRecordsBefore(Date before) {
@@ -64,14 +73,6 @@ public class TaskList {
                 tasks.add(filtered);
             }
         }
-        return new TaskList(tasks);
-    }
-
-    public void createTaskList() {
-        if (tasks.isEmpty()) {
-            tasks.add(new Task(1, "Internet"));
-            tasks.add(new Task(2, "Vorlesungen"));
-            tasks.add(new Task(3, "Mails"));
-        }
+        return new TaskList(db, tasks);
     }
 }

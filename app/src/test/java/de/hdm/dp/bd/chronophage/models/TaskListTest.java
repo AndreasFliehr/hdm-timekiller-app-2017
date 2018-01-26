@@ -20,7 +20,7 @@ public class TaskListTest {
     @Before
     public void setUp() throws Exception {
         taskMock = Mockito.mock(Task.class);
-        taskList = new TaskList();
+        taskList = new TaskList(db);
         doReturn(true).when(taskMock).isActive();
     }
 
@@ -51,7 +51,7 @@ public class TaskListTest {
         taskList.getAllTasks().add(withoutRecords);
         taskList.getAllTasks().add(withRecords);
         //execute test
-        final List<Task> tasksWithRecords = taskList.getAllTasksWithRecords();
+        final List<Task> tasksWithRecords = taskList.getAllTasksWithRecords(context);
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));

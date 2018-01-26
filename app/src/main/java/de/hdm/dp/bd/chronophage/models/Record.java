@@ -7,6 +7,15 @@ public class Record {
     private Date start;
     private Date end;
 
+    public Record(Date start, Date end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    public Record() {
+
+    }
+
     public void start() {
         if (start != null) {
             throw new RecordException("StartWasNotSet");

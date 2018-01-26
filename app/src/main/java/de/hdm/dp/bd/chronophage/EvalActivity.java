@@ -22,9 +22,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
 import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.TaskList;
+import de.hdm.dp.bd.chronophage.models.db.DbCalls;
 
 
 /**
@@ -177,7 +177,7 @@ public class EvalActivity extends CommonActivity {
     }
 
     private List<Task> getTasksInFilter() {
-        TaskList taskList = TaskDatabaseInMemoryMock.TASK_LIST;
+        TaskList taskList = new TaskList(new DbCalls());
         final String startDateString = startDateEditText.getText().toString();
         if (!startDateString.equals(START_DATE_DEFAULT_TEXT)) {
             try {
@@ -196,7 +196,7 @@ public class EvalActivity extends CommonActivity {
                 Log.e(this.getClass().getName(), e.getMessage());
             }
         }
-        return taskList.getAllTasksWithRecords();
+        return taskList.getAllTasksWithRecords(this);
     }
 
     private ArrayList<String> getLabels() {

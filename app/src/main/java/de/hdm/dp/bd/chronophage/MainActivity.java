@@ -7,9 +7,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
 import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.Task;
+import de.hdm.dp.bd.chronophage.models.db.DbCalls;
 
 /**
  * MainActivity ist die Aktivität, die beim Start der App bzw. beim Klick auf den Eintrag
@@ -21,9 +21,6 @@ public class MainActivity extends CommonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // create TaskList
-        TaskDatabaseInMemoryMock.TASK_LIST.createTaskList();
 
         /**
          * Nach dem Start der App wird die Ansicht angezeigt, die in der Ressource
@@ -61,7 +58,7 @@ public class MainActivity extends CommonActivity {
          * in der GUI ab
          */
         final ArrayAdapter adapter = new ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, list.getAllTasks());
+            android.R.layout.simple_list_item_1, list.getAllTasks(this));
         listview.setAdapter(adapter);
 
         /**
@@ -102,20 +99,7 @@ public class MainActivity extends CommonActivity {
         toast.show();
     }
 
-    /**
-     * TODO: diese Methode muss anwendungsspezifisch implementiert werden. Momentan liefert sie
-     * hard kodierte Namen von Tätigkeiten. Im ersten Schritt der Anwendung sollen diese Namen aus
-     * weiteren Objekten, z.B. Instanzen einer Klasse Task, ausgelesen und hier zu einer ArrayList
-     * zusammengebaut werden
-     * Sie können hier den Rückgabetyp auch in eine ArrayList<Task> umwandeln, wenn Sie in der Klasse
-     * Task die Methode toString() so implementieren, dass sie den anzuzeigenden Task-Namen
-     * zurückliefert.
-     * In dem Fall müssen auch die Zeilen
-     * 50 (momentan: final ArrayList<String> list = getListElements();) und
-     * 74 (momentan: final String item = (String) parent.getItemAtPosition(position);)
-     * ebenfalls geändert werden
-     */
     private TaskList getListElements() {
-        return TaskDatabaseInMemoryMock.TASK_LIST;
+        return new TaskList(new DbCalls());
     }
 }
