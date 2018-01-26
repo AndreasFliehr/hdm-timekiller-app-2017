@@ -8,8 +8,6 @@ import java.util.Date;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
-import static junit.framework.Assert.fail;
-
 
 public class RecordTest {
     private Record record;
