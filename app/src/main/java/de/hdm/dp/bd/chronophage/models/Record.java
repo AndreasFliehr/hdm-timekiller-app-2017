@@ -1,18 +1,23 @@
 package de.hdm.dp.bd.chronophage.models;
 
+import android.content.ContentValues;
+
 import java.util.Date;
+
+import de.hdm.dp.bd.chronophage.models.db.DbStatements;
 
 public class Record {
     private long id;
     private Date start;
     private Date end;
 
-    public Record(Date start, Date end) {
+    public Record(long id, Date start, Date end) {
+        this.id = id;
         this.start = start;
         this.end = end;
     }
 
-    public Record() {
+    Record() {
 
     }
 
@@ -56,6 +61,14 @@ public class Record {
 
     public boolean endsBefore(Date date) {
         return end.before(date);
+    }
+
+    public ContentValues toContentValues() {
+        final ContentValues contentValues = new ContentValues();
+        contentValues.put(DbStatements.COLUMN_NAME_START, start.getTime());
+        contentValues.put(DbStatements.COLUMN_NAME_END, end.getTime());
+        contentValues.put(DbStatements.COLUMN_NAME_DURATION, getDuration());
+        return contentValues;
     }
 
     public class RecordException extends RuntimeException {

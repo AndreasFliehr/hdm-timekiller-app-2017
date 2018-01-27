@@ -28,6 +28,6 @@ public class TaskListProviderDbImpl implements TaskListProvider {
 
     @Override
     public void updateTasksRecords(Task task) {
-        dbCalls.updateTasksRecords(task);
+        dbCalls.updateTasksRecords(task, context);
     }
 }
