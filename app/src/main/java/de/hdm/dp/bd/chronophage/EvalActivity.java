@@ -25,6 +25,8 @@ import java.util.List;
 import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.db.DbCalls;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 
 /**
@@ -177,7 +179,7 @@ public class EvalActivity extends CommonActivity {
     }
 
     private List<Task> getTasksInFilter() {
-        TaskList taskList = new TaskList(new DbCalls());
+        TaskList taskList = new TaskList(new TaskListProviderDbImpl(this));
         final String startDateString = startDateEditText.getText().toString();
         if (!startDateString.equals(START_DATE_DEFAULT_TEXT)) {
             try {
@@ -196,7 +198,7 @@ public class EvalActivity extends CommonActivity {
                 Log.e(this.getClass().getName(), e.getMessage());
             }
         }
-        return taskList.getAllTasksWithRecords(this);
+        return taskList.getAllTasksWithRecords();
     }
 
     private ArrayList<String> getLabels() {

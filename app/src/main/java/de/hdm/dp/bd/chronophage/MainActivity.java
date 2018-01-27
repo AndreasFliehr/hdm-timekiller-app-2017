@@ -10,6 +10,7 @@ import android.widget.Toast;
 import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.db.DbCalls;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 /**
  * MainActivity ist die Aktivität, die beim Start der App bzw. beim Klick auf den Eintrag
@@ -58,7 +59,7 @@ public class MainActivity extends CommonActivity {
          * in der GUI ab
          */
         final ArrayAdapter adapter = new ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, list.getAllTasks(this));
+            android.R.layout.simple_list_item_1, list.getAllTasks());
         listview.setAdapter(adapter);
 
         /**
@@ -100,6 +101,6 @@ public class MainActivity extends CommonActivity {
     }
 
     private TaskList getListElements() {
-        return new TaskList(new DbCalls());
+        return new TaskList(new TaskListProviderDbImpl(this));
     }
 }

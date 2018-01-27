@@ -1,27 +1,27 @@
 package de.hdm.dp.bd.chronophage.models;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import de.hdm.dp.bd.chronophage.models.db.DbCalls;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
 
 public class TaskList {
 
-    private final DbCalls db;
+    private final TaskListProvider taskListProvider;
+    private final Date after;
+    private final Date before;
 
-    private List<Task> tasks;
-
-    public TaskList(DbCalls db) {
-        this.db = db;
-        tasks = new ArrayList<>();
+    public TaskList(TaskListProvider taskListProvider) {
+        this.taskListProvider = taskListProvider;
+        after = null;
+        before = null;
     }
 
-    public TaskList(DbCalls db, List<Task> tasks) {
-        this.db = db;
-        this.tasks = tasks;
+    public TaskList(TaskListProvider context, Date before, Date after) {
+        this.taskListProvider = context;
+        this.before = before;
+        this.after = after;
     }
 
     public void setTaskActive(Task task) {
@@ -36,43 +36,40 @@ public class TaskList {
         return task.isActive();
     }
 
-    public List<Task> getAllTasks(Context context) {
-        return db.getTaskObjects(context);
+    public List<Task> getAllTasks() {
+        return taskListProvider.getAllTasks();
     }
 
-    public List<Task> getAllTasksWithRecords(Context context) {
-        this.tasks = db.getTasksWithRecords(context);
+    public List<Task> getAllTasksWithRecords() {
+        List<Task> tasks = taskListProvider.getAllTasks();
         ArrayList<Task> tasksWithRecords = new ArrayList<>();
 
-        for (Task task: tasks) {
-            if (task.getOverallDuration() > 0) {
-                tasksWithRecords.add(task);
+        for (Task task : tasks) {
+            Task filteredTask = filterIfApplicable(task);
+            if (filteredTask.getOverallDuration() > 0) {
+                tasksWithRecords.add(filteredTask);
             }
         }
         return tasksWithRecords;
     }
 
-    public TaskList getFilteredTasksWithRecordsAfter(Date after) {
-        ArrayList<Task> tasks = new ArrayList<>();
-
-        for (Task task: this.tasks) {
-            Task filtered = task.getTaskWithRecordsAfter(after);
-            if (filtered.getOverallDuration() > 0) {
-                tasks.add(filtered);
-            }
+    private Task filterIfApplicable(Task task) {
+        if (before == null && after == null) {
+            return task;
+        } else if (before != null && after != null) {
+            return task.getTaskWithRecordsAfter(after).getTaskWithRecordsBefore(before);
+        } else if (before != null) {
+            return task.getTaskWithRecordsBefore(before);
+        } else {
+            return task.getTaskWithRecordsAfter(after);
         }
-        return new TaskList(db, tasks);
+    }
+
+    public TaskList getFilteredTasksWithRecordsAfter(Date after) {
+        return new TaskList(taskListProvider, this.before, after);
     }
 
     public TaskList getFilteredTasksWithRecordsBefore(Date before) {
-        ArrayList<Task> tasks = new ArrayList<>();
-
-        for (Task task: this.tasks) {
-            Task filtered = task.getTaskWithRecordsBefore(before);
-            if (filtered.getOverallDuration() > 0) {
-                tasks.add(filtered);
-            }
-        }
-        return new TaskList(db, tasks);
+        return new TaskList(taskListProvider, before, this.after);
     }
 }

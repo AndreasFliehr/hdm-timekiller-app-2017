@@ -5,8 +5,11 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
@@ -16,11 +19,13 @@ import static org.mockito.Mockito.verify;
 public class TaskListTest {
     private Task taskMock;
     private TaskList taskList;
+    private TaskListProviderMock taskListProvider;
 
     @Before
     public void setUp() throws Exception {
         taskMock = Mockito.mock(Task.class);
-        taskList = new TaskList(db);
+        taskListProvider = new TaskListProviderMock();
+        taskList = new TaskList(taskListProvider);
         doReturn(true).when(taskMock).isActive();
     }
 
@@ -48,10 +53,10 @@ public class TaskListTest {
         doReturn(1L).when(withRecords).getOverallDuration();
         Task withoutRecords = Mockito.mock(Task.class);
         doReturn(0L).when(withoutRecords).getOverallDuration();
-        taskList.getAllTasks().add(withoutRecords);
-        taskList.getAllTasks().add(withRecords);
+        taskListProvider.taskList.add(withoutRecords);
+        taskListProvider.taskList.add(withRecords);
         //execute test
-        final List<Task> tasksWithRecords = taskList.getAllTasksWithRecords(context);
+        final List<Task> tasksWithRecords = taskList.getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));
@@ -70,8 +75,8 @@ public class TaskListTest {
         Task withoutRecordsAfter = Mockito.mock(Task.class);
         doReturn(withoutRecords).when(withoutRecordsAfter).getTaskWithRecordsAfter((Date) any());
         Date testDate = Date.from(Instant.now());
-        taskList.getAllTasks().add(withRecordsAfter);
-        taskList.getAllTasks().add(withoutRecordsAfter);
+        taskListProvider.taskList.add(withRecordsAfter);
+        taskListProvider.taskList.add(withoutRecordsAfter);
         //executeTest
         final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasks();
         assertNotNull(tasksWithRecords);
@@ -87,7 +92,7 @@ public class TaskListTest {
         Task withoutRecordsAfter = Mockito.mock(Task.class);
         doReturn(withoutRecords).when(withoutRecordsAfter).getTaskWithRecordsAfter((Date) any());
         Date testDate = Date.from(Instant.now());
-        taskList.getAllTasks().add(withoutRecordsAfter);
+        taskListProvider.taskList.add(withoutRecordsAfter);
         //executeTest
         final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasks();
         assertNotNull(tasksWithRecords);
@@ -107,8 +112,8 @@ public class TaskListTest {
         Task withoutRecordsBefore = Mockito.mock(Task.class);
         doReturn(withoutRecords).when(withoutRecordsBefore).getTaskWithRecordsBefore((Date) any());
         Date testDate = Date.from(Instant.now());
-        taskList.getAllTasks().add(withRecordsBefore);
-        taskList.getAllTasks().add(withoutRecordsBefore);
+        taskListProvider.taskList.add(withRecordsBefore);
+        taskListProvider.taskList.add(withoutRecordsBefore);
         //executeTest
         final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
         assertNotNull(tasksWithRecords);
@@ -124,11 +129,19 @@ public class TaskListTest {
         Task withoutRecordsBefore = Mockito.mock(Task.class);
         doReturn(withoutRecords).when(withoutRecordsBefore).getTaskWithRecordsBefore((Date) any());
         Date testDate = Date.from(Instant.now());
-        taskList.getAllTasks().add(withoutRecordsBefore);
+        taskListProvider.taskList.add(withoutRecordsBefore);
         //executeTest
         final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.isEmpty());
     }
 
+    private class TaskListProviderMock implements TaskListProvider {
+        private final List<Task> taskList = new ArrayList<>();
+
+        @Override
+        public List<Task> getAllTasks() {
+            return taskList;
+        }
+    }
 }

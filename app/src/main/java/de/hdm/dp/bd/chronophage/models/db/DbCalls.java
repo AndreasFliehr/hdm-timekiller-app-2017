@@ -34,7 +34,7 @@ public class DbCalls {
 
     public ArrayList<Task> getTaskObjects(Context context) {
         dbManager = createDbManager(context);
-        ArrayList<Task> result = new ArrayList();
+        ArrayList<Task> result = new ArrayList<>();
         SQLiteDatabase db = dbManager.getReadableDatabase();
 
         Cursor c = db.query(
