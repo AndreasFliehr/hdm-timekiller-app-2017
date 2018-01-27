@@ -86,6 +86,14 @@ public class Task {
         return new Task(this.getId(), this.getName(), taskWithRecords);
     }
 
+    public Record getMostRecentRecord() {
+        if (records.isEmpty()) {
+            throw new TaskException("No Record to retrieve is in this task");
+        } else {
+            return records.get(records.size() - 1);
+        }
+    }
+
     @Override
     public String toString() {
         return name;

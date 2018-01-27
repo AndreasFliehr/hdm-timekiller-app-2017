@@ -9,6 +9,7 @@ import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class TaskTest {
     private Task task;
@@ -51,6 +52,32 @@ public class TaskTest {
         Thread.sleep(100);
         task.stop();
         Assert.assertTrue(0 < task.getOverallDuration());
+    }
+
+    @Test(expected = Task.TaskException.class)
+    public void getMostRecentRecord_noRecords_throwsException() {
+        task.getMostRecentRecord();
+    }
+
+    @Test
+    public void getMostRecentRecord_oneRecord_returnsNonNull() throws Exception {
+        task.start();
+        Thread.sleep(100);
+        task.stop();
+        assertNotNull(task.getMostRecentRecord());
+    }
+
+    @Test
+    public void getMostRecentRecord_twoRecordsTwiceCalls_returnsDifferentRecordSecondTimeThanFirst() throws Exception {
+        task.start();
+        Thread.sleep(100);
+        task.stop();
+        final Record mostRecentRecord1 = task.getMostRecentRecord();
+        task.start();
+        Thread.sleep(100);
+        task.stop();
+        final Record mostRecentRecord2 = task.getMostRecentRecord();
+        assertNotEquals(mostRecentRecord1, mostRecentRecord2);
     }
 
     @Test
