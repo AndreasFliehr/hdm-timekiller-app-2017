@@ -42,6 +42,12 @@ public class TaskListTest {
     }
 
     @Test
+    public void setTaskInactive_newTaskList_updateCalled() throws Exception {
+        taskList.setTaskInactive(taskMock);
+        assertTrue(taskListProvider.updateCalled);
+    }
+
+    @Test
     public void isTaskActive_newTaskList_isTrue() throws Exception {
         assertTrue(taskList.isTaskActive(taskMock));
     }
@@ -78,7 +84,7 @@ public class TaskListTest {
         taskListProvider.taskList.add(withRecordsAfter);
         taskListProvider.taskList.add(withoutRecordsAfter);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasks();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));
@@ -94,7 +100,7 @@ public class TaskListTest {
         Date testDate = Date.from(Instant.now());
         taskListProvider.taskList.add(withoutRecordsAfter);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasks();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.isEmpty());
     }
@@ -115,7 +121,7 @@ public class TaskListTest {
         taskListProvider.taskList.add(withRecordsBefore);
         taskListProvider.taskList.add(withoutRecordsBefore);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));
@@ -131,17 +137,28 @@ public class TaskListTest {
         Date testDate = Date.from(Instant.now());
         taskListProvider.taskList.add(withoutRecordsBefore);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasks();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.isEmpty());
     }
 
     private class TaskListProviderMock implements TaskListProvider {
         private final List<Task> taskList = new ArrayList<>();
+        private boolean updateCalled = false;
 
         @Override
         public List<Task> getAllTasks() {
             return taskList;
+        }
+
+        @Override
+        public List<Task> getAllRecordLessTasks() {
+            return taskList;
+        }
+
+        @Override
+        public void updateTasksRecords(Task task) {
+            this.updateCalled = true;
         }
     }
 }

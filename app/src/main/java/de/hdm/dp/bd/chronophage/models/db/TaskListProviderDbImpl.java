@@ -20,4 +20,14 @@ public class TaskListProviderDbImpl implements TaskListProvider {
     public List<Task> getAllTasks() {
         return dbCalls.getTasksWithRecords(context);
     }
+
+    @Override
+    public List<Task> getAllRecordLessTasks() {
+        return dbCalls.getTasksWithoutRecords(context);
+    }
+
+    @Override
+    public void updateTasksRecords(Task task) {
+        dbCalls.updateTasksRecords(task);
+    }
 }

@@ -30,6 +30,7 @@ public class TaskList {
 
     public void setTaskInactive(Task task) {
         task.stop();
+        taskListProvider.updateTasksRecords(task);
     }
 
     public boolean isTaskActive(Task task) {
@@ -37,7 +38,7 @@ public class TaskList {
     }
 
     public List<Task> getAllTasks() {
-        return taskListProvider.getAllTasks();
+        return taskListProvider.getAllRecordLessTasks();
     }
 
     public List<Task> getAllTasksWithRecords() {

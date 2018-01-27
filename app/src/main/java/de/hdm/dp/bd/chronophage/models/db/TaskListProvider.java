@@ -9,4 +9,8 @@ public interface TaskListProvider {
 
 
     List<Task> getAllTasks();
+
+    List<Task> getAllRecordLessTasks();
+
+    void updateTasksRecords(Task task);
 }
