@@ -16,7 +16,7 @@ import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
  * "Data input" im Drawer-Menü aufgerufen wird
  */
 public class MainActivity extends CommonActivity {
-
+    TaskList list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +51,14 @@ public class MainActivity extends CommonActivity {
          * TODO: hier ggf. den Rückgabetyp ändern - abhängig davon, wie Sie die Methode getTaskList
          * implementieren
          */
-        final TaskList list = getTaskList();
+        list = getTaskList();
 
         /**
          * Der Adapter bildet die Elememnte aus der Liste "list" auf Einträge des Listen-Widgets (listview)
          * in der GUI ab
          */
         final ArrayAdapter adapter = new ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, list.getAllTasks());
+                android.R.layout.simple_list_item_1, list.getAllTasks());
         listview.setAdapter(adapter);
 
         /**
@@ -84,13 +84,13 @@ public class MainActivity extends CommonActivity {
 
     private void toggleTask(Task task) {
         String toastMessage;
-        if (task.isActive()) {
+        if (list.isTaskActive(task)) {
             // task active, stop it and set Toast-message
-            task.stop();
+            list.setTaskInactive(task);
             toastMessage = task.getName() + " stopped.";
         } else {
             // task not active, start it and set Toast-message
-            task.start();
+            list.setTaskActive(task);
             toastMessage = task.getName() + " started.";
         }
 
