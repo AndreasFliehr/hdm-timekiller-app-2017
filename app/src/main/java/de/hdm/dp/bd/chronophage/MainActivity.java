@@ -7,9 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.Task;
-import de.hdm.dp.bd.chronophage.models.db.DbCalls;
+import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 /**
@@ -43,16 +42,16 @@ public class MainActivity extends CommonActivity {
         final ListView listview = (ListView) findViewById(R.id.listView);
 
         /**
-         * Aufruf der Methode getListElements(), welche die Inhalte der dargestellten Liste (listview)
+         * Aufruf der Methode getTaskList(), welche die Inhalte der dargestellten Liste (listview)
          * liefert
          * Für die Inhalte der ArrayList können Sie später Ihre Klasse Task statt String benutzen.
          * Dafür muss jedoch in der Klasse Task die Methode toString() anwendungs-
          * spezifisch implementiert sein und diejenigen Informationen über eine Task zurückliefern,
          * die dem Benutzer angezeigt werdne sollen, z.B. den Task-Namen.
-         * TODO: hier ggf. den Rückgabetyp ändern - abhängig davon, wie Sie die Methode getListElements
+         * TODO: hier ggf. den Rückgabetyp ändern - abhängig davon, wie Sie die Methode getTaskList
          * implementieren
          */
-        final TaskList list = getListElements();
+        final TaskList list = getTaskList();
 
         /**
          * Der Adapter bildet die Elememnte aus der Liste "list" auf Einträge des Listen-Widgets (listview)
@@ -100,7 +99,7 @@ public class MainActivity extends CommonActivity {
         toast.show();
     }
 
-    private TaskList getListElements() {
+    private TaskList getTaskList() {
         return new TaskList(new TaskListProviderDbImpl(this));
     }
 }
