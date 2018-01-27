@@ -4,16 +4,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
+
 public class TaskList {
 
-    private List<Task> tasks;
+    private final TaskListProvider taskListProvider;
+    private final Date after;
+    private final Date before;
 
-    public TaskList() {
-        tasks = new ArrayList<>();
+    public TaskList(TaskListProvider taskListProvider) {
+        this.taskListProvider = taskListProvider;
+        after = null;
+        before = null;
     }
 
-    public TaskList(List<Task> tasks) {
-        this.tasks = tasks;
+    public TaskList(TaskListProvider context, Date before, Date after) {
+        this.taskListProvider = context;
+        this.before = before;
+        this.after = after;
     }
 
     public void setTaskActive(Task task) {
@@ -22,6 +30,7 @@ public class TaskList {
 
     public void setTaskInactive(Task task) {
         task.stop();
+        taskListProvider.updateTasksRecords(task);
     }
 
     public boolean isTaskActive(Task task) {
@@ -29,49 +38,39 @@ public class TaskList {
     }
 
     public List<Task> getAllTasks() {
-        return tasks;
+        return taskListProvider.getAllRecordLessTasks();
     }
 
     public List<Task> getAllTasksWithRecords() {
+        List<Task> tasks = taskListProvider.getAllTasks();
         ArrayList<Task> tasksWithRecords = new ArrayList<>();
 
-        for (Task task: tasks) {
-            if (task.getOverallDuration() > 0) {
-                tasksWithRecords.add(task);
+        for (Task task : tasks) {
+            Task filteredTask = filterIfApplicable(task);
+            if (filteredTask.getOverallDuration() > 0) {
+                tasksWithRecords.add(filteredTask);
             }
         }
         return tasksWithRecords;
     }
 
-    public TaskList getFilteredTasksWithRecordsAfter(Date after) {
-        ArrayList<Task> tasks = new ArrayList<>();
-
-        for (Task task: this.tasks) {
-            Task filtered = task.getTaskWithRecordsAfter(after);
-            if (filtered.getOverallDuration() > 0) {
-                tasks.add(filtered);
-            }
+    private Task filterIfApplicable(Task task) {
+        if (before == null && after == null) {
+            return task;
+        } else if (before != null && after != null) {
+            return task.getTaskWithRecordsAfter(after).getTaskWithRecordsBefore(before);
+        } else if (before != null) {
+            return task.getTaskWithRecordsBefore(before);
+        } else {
+            return task.getTaskWithRecordsAfter(after);
         }
-        return new TaskList(tasks);
+    }
+
+    public TaskList getFilteredTasksWithRecordsAfter(Date after) {
+        return new TaskList(taskListProvider, this.before, after);
     }
 
     public TaskList getFilteredTasksWithRecordsBefore(Date before) {
-        ArrayList<Task> tasks = new ArrayList<>();
-
-        for (Task task: this.tasks) {
-            Task filtered = task.getTaskWithRecordsBefore(before);
-            if (filtered.getOverallDuration() > 0) {
-                tasks.add(filtered);
-            }
-        }
-        return new TaskList(tasks);
-    }
-
-    public void createTaskList() {
-        if (tasks.isEmpty()) {
-            tasks.add(new Task(1, "Internet"));
-            tasks.add(new Task(2, "Vorlesungen"));
-            tasks.add(new Task(3, "Mails"));
-        }
+        return new TaskList(taskListProvider, before, this.after);
     }
 }

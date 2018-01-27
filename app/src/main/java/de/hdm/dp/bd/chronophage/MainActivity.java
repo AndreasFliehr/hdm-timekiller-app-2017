@@ -7,23 +7,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import de.hdm.dp.bd.chronophage.database.TaskDatabaseInMemoryMock;
-import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.Task;
+import de.hdm.dp.bd.chronophage.models.TaskList;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 /**
  * MainActivity ist die Aktivität, die beim Start der App bzw. beim Klick auf den Eintrag
  * "Data input" im Drawer-Menü aufgerufen wird
  */
 public class MainActivity extends CommonActivity {
-
+    TaskList list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // create TaskList
-        TaskDatabaseInMemoryMock.TASK_LIST.createTaskList();
 
         /**
          * Nach dem Start der App wird die Ansicht angezeigt, die in der Ressource
@@ -45,23 +42,23 @@ public class MainActivity extends CommonActivity {
         final ListView listview = (ListView) findViewById(R.id.listView);
 
         /**
-         * Aufruf der Methode getListElements(), welche die Inhalte der dargestellten Liste (listview)
+         * Aufruf der Methode getTaskList(), welche die Inhalte der dargestellten Liste (listview)
          * liefert
          * Für die Inhalte der ArrayList können Sie später Ihre Klasse Task statt String benutzen.
          * Dafür muss jedoch in der Klasse Task die Methode toString() anwendungs-
          * spezifisch implementiert sein und diejenigen Informationen über eine Task zurückliefern,
          * die dem Benutzer angezeigt werdne sollen, z.B. den Task-Namen.
-         * TODO: hier ggf. den Rückgabetyp ändern - abhängig davon, wie Sie die Methode getListElements
+         * TODO: hier ggf. den Rückgabetyp ändern - abhängig davon, wie Sie die Methode getTaskList
          * implementieren
          */
-        final TaskList list = getListElements();
+        list = getTaskList();
 
         /**
          * Der Adapter bildet die Elememnte aus der Liste "list" auf Einträge des Listen-Widgets (listview)
          * in der GUI ab
          */
         final ArrayAdapter adapter = new ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, list.getAllTasks());
+                android.R.layout.simple_list_item_1, list.getAllTasks());
         listview.setAdapter(adapter);
 
         /**
@@ -87,13 +84,13 @@ public class MainActivity extends CommonActivity {
 
     private void toggleTask(Task task) {
         String toastMessage;
-        if (task.isActive()) {
+        if (list.isTaskActive(task)) {
             // task active, stop it and set Toast-message
-            task.stop();
+            list.setTaskInactive(task);
             toastMessage = task.getName() + " stopped.";
         } else {
             // task not active, start it and set Toast-message
-            task.start();
+            list.setTaskActive(task);
             toastMessage = task.getName() + " started.";
         }
 
@@ -102,20 +99,7 @@ public class MainActivity extends CommonActivity {
         toast.show();
     }
 
-    /**
-     * TODO: diese Methode muss anwendungsspezifisch implementiert werden. Momentan liefert sie
-     * hard kodierte Namen von Tätigkeiten. Im ersten Schritt der Anwendung sollen diese Namen aus
-     * weiteren Objekten, z.B. Instanzen einer Klasse Task, ausgelesen und hier zu einer ArrayList
-     * zusammengebaut werden
-     * Sie können hier den Rückgabetyp auch in eine ArrayList<Task> umwandeln, wenn Sie in der Klasse
-     * Task die Methode toString() so implementieren, dass sie den anzuzeigenden Task-Namen
-     * zurückliefert.
-     * In dem Fall müssen auch die Zeilen
-     * 50 (momentan: final ArrayList<String> list = getListElements();) und
-     * 74 (momentan: final String item = (String) parent.getItemAtPosition(position);)
-     * ebenfalls geändert werden
-     */
-    private TaskList getListElements() {
-        return TaskDatabaseInMemoryMock.TASK_LIST;
+    private TaskList getTaskList() {
+        return new TaskList(new TaskListProviderDbImpl(this));
     }
 }
