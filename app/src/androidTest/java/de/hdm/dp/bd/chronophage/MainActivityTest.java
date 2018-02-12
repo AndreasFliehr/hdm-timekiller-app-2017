@@ -64,6 +64,22 @@ public class MainActivityTest {
     }
 
     @Test
+    public void taskList_onItemClick_toggleItemEnd() throws InterruptedException {
+        onData(anything())
+            .inAdapterView(withId(R.id.listView))
+            .atPosition(0)
+            .perform(click());
+        onData(anything())
+            .inAdapterView(withId(R.id.listView))
+            .atPosition(0)
+            .perform(click());
+
+        onView(withText("Internet stopped."))
+            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+            .check(matches(isDisplayed()));
+    }
+
+    @Test
     public void pieChart_taskListRecordsFilled_containsValues() throws InterruptedException {
         preparePieChartTest();
 
