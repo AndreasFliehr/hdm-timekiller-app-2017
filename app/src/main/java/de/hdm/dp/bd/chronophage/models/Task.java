@@ -3,7 +3,6 @@ package de.hdm.dp.bd.chronophage.models;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Task {
     private long id;
@@ -39,7 +38,7 @@ public class Task {
 
     public void start() {
         if (active) {
-            throw new TaskException("TaskAlreadyStarted");
+            throw new TaskException("Cannot start task that was already started without stopping it first!");
         }
         active = true;
         activeRecord = new Record();
@@ -48,7 +47,7 @@ public class Task {
 
     public void stop() {
         if (!active) {
-            throw new TaskException("TaskNotYetStarted");
+            throw new TaskException("Cannot stop task that was never started!");
         }
         active = false;
         activeRecord.stop();
