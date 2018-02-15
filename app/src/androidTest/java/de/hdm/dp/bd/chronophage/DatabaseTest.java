@@ -3,6 +3,7 @@ package de.hdm.dp.bd.chronophage;
 import android.content.Context;
 import android.database.Cursor;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -21,8 +22,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DatabaseTest {
-    private DbManager dbManager;
-    private DbCalls dbCalls;
+    private DbManager dbManager = new DbManager(TARGET_CONTEXT);
+    private DbCalls dbCalls = new DbCalls();
     private static final Context TARGET_CONTEXT = getTargetContext();
     private final Date start = new Date(1000);
 
@@ -33,10 +34,9 @@ public class DatabaseTest {
     }
 
     @Before
-    public void setUp() {
-        dbManager = new DbManager(TARGET_CONTEXT);
-        dbCalls = new DbCalls();
-        clearRecords();
+    @After
+    public void clearRecords() {
+        dbManager.getWritableDatabase().delete(DbStatements.TABLE_NAME_DURATION, null, null);
     }
 
     /**
@@ -108,7 +108,4 @@ public class DatabaseTest {
                 new String[]{"" + task.getId()});
     }
 
-    private void clearRecords() {
-        dbManager.getWritableDatabase().delete(DbStatements.TABLE_NAME_DURATION, null, null);
-    }
 }
