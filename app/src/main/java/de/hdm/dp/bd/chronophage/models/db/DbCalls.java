@@ -30,7 +30,7 @@ public class DbCalls {
         return column + " " + sort;
     }
 
-    ArrayList<Task> getTasksWithoutRecords(Context context) {
+    public ArrayList<Task> getTasksWithoutRecords(Context context) {
         dbManager = createDbManager(context);
         ArrayList<Task> result = new ArrayList<>();
         SQLiteDatabase db = dbManager.getReadableDatabase();
@@ -57,7 +57,7 @@ public class DbCalls {
         return result;
     }
 
-    ArrayList<Task> getTasksWithRecords(Context context) {
+    public ArrayList<Task> getTasksWithRecords(Context context) {
 
         ArrayList<Task> listOfAllTasks = getTasksWithoutRecords(context);
         dbManager = createDbManager(context);
@@ -102,7 +102,7 @@ public class DbCalls {
         return result;
     }
 
-    void updateTasksRecords(Task task, Context context) {
+    public void updateTasksRecords(Task task, Context context) {
         dbManager = createDbManager(context);
         SQLiteDatabase db = dbManager.getWritableDatabase();
 
