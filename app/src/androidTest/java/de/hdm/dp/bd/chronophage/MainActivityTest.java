@@ -50,7 +50,7 @@ public class MainActivityTest {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         year = cal.get(Calendar.YEAR);
-        month = cal.get(Calendar.MONTH);
+        month = cal.get(Calendar.MONTH) + 1;
         day = cal.get(Calendar.DAY_OF_MONTH);
     }
 
@@ -151,9 +151,8 @@ public class MainActivityTest {
 
     @Test
     public void pieChart_startAndEndDateSelectedInRange_containsValues() throws InterruptedException {
-        clickListItemAt(0);
-        clickListItemAt(1);
-        clickListItemAt(2);
+        clickFirstThreeItems();
+        clickFirstThreeItems();
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
@@ -168,9 +167,8 @@ public class MainActivityTest {
 
     @Test
     public void pieChart_startAndEndDateSelectedInRange_containsLabels() throws InterruptedException {
-        clickListItemAt(0);
-        clickListItemAt(1);
-        clickListItemAt(2);
+        clickFirstThreeItems();
+        clickFirstThreeItems();
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
@@ -186,6 +184,12 @@ public class MainActivityTest {
             add("Mails");
         }};
         assertEquals(expectedTaskNames, chartData.getXVals());
+    }
+
+    private void clickFirstThreeItems() {
+        clickListItemAt(0);
+        clickListItemAt(1);
+        clickListItemAt(2);
     }
 
     private void preparePieChartTest() throws InterruptedException {
