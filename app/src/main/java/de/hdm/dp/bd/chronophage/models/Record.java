@@ -18,27 +18,26 @@ public class Record {
     }
 
     Record() {
-
     }
 
     public void start() {
         if (start != null) {
-            throw new RecordException("StartWasNotSet");
+            throw new RecordException("Start cannot be called on an already started record.");
         } else if (end != null) {
-            throw new RecordException("EndWasAlreadySet");
+            throw new RecordException("Start cannot be called on an already finished record.");
+        } else {
+            start = new Date(System.currentTimeMillis());
         }
-
-        start = new Date(System.currentTimeMillis());
     }
 
     public void stop() {
         if (start == null) {
-            throw new RecordException("StartWasNotSet");
+            throw new RecordException("Cannot stop record that was never started.");
         } else if (end != null) {
-            throw new RecordException("StartWasAlreadySet");
+            throw new RecordException("Stop cannot be called on an already finished record.");
+        } else {
+            end = new Date(System.currentTimeMillis());
         }
-
-        end = new Date(System.currentTimeMillis());
     }
 
     public long getId() {
@@ -47,12 +46,12 @@ public class Record {
 
     public long getDuration() {
         if (start == null) {
-            throw new RecordException("StartWasNotSet");
+            throw new RecordException("Cannot output duration for record that wasn't started.");
         } else if (end == null) {
-            throw new RecordException("EndWasNotSet");
+            throw new RecordException("Cannot output duration for record that wasn't stopped.");
+        } else {
+            return end.getTime() - start.getTime();
         }
-
-        return end.getTime() - start.getTime();
     }
 
     public boolean startsAfter(Date date) {
