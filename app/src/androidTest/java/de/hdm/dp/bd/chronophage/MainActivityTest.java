@@ -10,12 +10,15 @@ import android.view.View;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.ChartData;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -42,8 +45,22 @@ public class MainActivityTest {
         add("Spielen");
         add("Vorlesungen");
     }};
+    private int year;
+    private int month;
+    private int day;
+
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
+
+    @Before
+    public void setUp() {
+        Date date = new Date(System.currentTimeMillis());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH);
+    }
 
     @Test
     public void taskList_activityStarted_isDisplayed() {
@@ -102,7 +119,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void pieChart_startAndEndDateOutOfRange_containsNoValues() throws InterruptedException {
+    public void pieChart_startAndEndDateSelectedOutOfRange_containsNoValues() throws InterruptedException {
         preparePieChartTest();
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
@@ -117,7 +134,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void pieChart_startAndEndDateOutOfRange_containsNoLabels() throws InterruptedException {
+    public void pieChart_startAndEndDateSelectedOutOfRange_containsNoLabels() throws InterruptedException {
         preparePieChartTest();
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
@@ -129,6 +146,45 @@ public class MainActivityTest {
         PieChart pieChart = act.findViewById(R.id.chart);
         ChartData chartData = pieChart.getData();
         assertEquals(0, chartData.getXVals().size());
+    }
+
+    @Test
+    public void pieChart_startAndEndDateSelectedInRange_containsValues() throws InterruptedException {
+        clickListItemAt(0);
+        clickListItemAt(1);
+        clickListItemAt(2);
+
+        onView(withContentDescription("Open navigation drawer")).perform(click());
+        onView(withText(R.string.evaluation)).perform(click());
+        EvalActivityTest.selectStartDate(year, month, day);
+        EvalActivityTest.selectEndDate(year, month, day+1);
+
+        Activity act = getCurrentActivity();
+        PieChart pieChart = act.findViewById(R.id.chart);
+        ChartData chartData = pieChart.getData();
+        assertEquals(3, chartData.getXValCount());
+    }
+
+    @Test
+    public void pieChart_startAndEndDateSelectedInRange_containsLabels() throws InterruptedException {
+        clickListItemAt(0);
+        clickListItemAt(1);
+        clickListItemAt(2);
+
+        onView(withContentDescription("Open navigation drawer")).perform(click());
+        onView(withText(R.string.evaluation)).perform(click());
+        EvalActivityTest.selectStartDate(year, month, day);
+        EvalActivityTest.selectEndDate(year, month, day+1);
+
+        Activity act = getCurrentActivity();
+        PieChart pieChart = act.findViewById(R.id.chart);
+        ChartData chartData = pieChart.getData();
+        ArrayList<String> expectedTaskNames = new ArrayList<String>() {{
+            add("Internet");
+            add("Lesen");
+            add("Mails");
+        }};
+        assertEquals(expectedTaskNames, chartData.getXVals());
     }
 
     private void preparePieChartTest() throws InterruptedException {
