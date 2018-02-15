@@ -84,7 +84,6 @@ public abstract class CommonActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.nav_eval) {
             Intent myIntent = new Intent(this, EvalActivity.class);
-            setEvalParameters(myIntent);
             startActivity(myIntent);
             return true;
         }
@@ -92,13 +91,5 @@ public abstract class CommonActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    //muss in der jeweiligen Klasse überschrieben werden, um Parameter für die Eval-Seite zu
-    // übergeben
-    //wird evtl. später benötigt, wenn die Daten benutzerspezifisch aus der DB gelesen werden sollen
-
-    protected void setEvalParameters(Intent i) {
-        // do nothing
     }
 }

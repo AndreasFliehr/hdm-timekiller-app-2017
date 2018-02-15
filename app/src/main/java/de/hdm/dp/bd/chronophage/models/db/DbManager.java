@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-
 public class DbManager extends SQLiteOpenHelper {
     public static int DATABASE_VERSION = 1;
     public static String DATABASE_NAME = "example.db";
@@ -41,9 +40,9 @@ public class DbManager extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(DbStatements.COLUMN_NAME_TITLE, name);
             db.insert(
-                    DbStatements.TABLE_NAME_TASK,
-                    DbStatements.COLUMN_NAME_TITLE,
-                    values);
+                DbStatements.TABLE_NAME_TASK,
+                DbStatements.COLUMN_NAME_TITLE,
+                values);
         }
     }
 

@@ -13,7 +13,6 @@ import java.util.Map;
 import de.hdm.dp.bd.chronophage.models.Record;
 import de.hdm.dp.bd.chronophage.models.Task;
 
-
 public class DbCalls {
 
     private DbManager dbManager;
@@ -36,13 +35,13 @@ public class DbCalls {
         SQLiteDatabase db = dbManager.getReadableDatabase();
 
         Cursor c = db.query(
-                DbStatements.TABLE_NAME_TASK, // The table to query
-                getProjection(DbStatements._ID, DbStatements.COLUMN_NAME_TITLE), // The columns to return
-                null,                                      // The columns for the WHERE clause
-                null,                                  // The values for the WHERE clause
-                null,                                     // don't group the rows
-                null,                                     // don't filter by row groups
-                getSortOrder(DbStatements.COLUMN_NAME_TITLE, DbStatements.ASC) // The sort order
+            DbStatements.TABLE_NAME_TASK, // The table to query
+            getProjection(DbStatements._ID, DbStatements.COLUMN_NAME_TITLE), // The columns to return
+            null,                                      // The columns for the WHERE clause
+            null,                                  // The values for the WHERE clause
+            null,                                     // don't group the rows
+            null,                                     // don't filter by row groups
+            getSortOrder(DbStatements.COLUMN_NAME_TITLE, DbStatements.ASC) // The sort order
         );
 
         c.moveToFirst();
@@ -65,17 +64,17 @@ public class DbCalls {
         SQLiteDatabase db = dbManager.getReadableDatabase();
 
         Cursor c = db.query(
-                DbStatements.TABLE_NAME_DURATION, // The table to query
-                getProjection(
-                        DbStatements._ID,
-                        DbStatements.COLUMN_NAME_TASKID,
-                        DbStatements.COLUMN_NAME_START,
-                        DbStatements.COLUMN_NAME_END), // The columns to return
-                null,                                      // The columns for the WHERE clause
-                null,                                  // The values for the WHERE clause
-                null,                                     // don't group the rows
-                null,                                     // don't filter by row groups
-                null
+            DbStatements.TABLE_NAME_DURATION, // The table to query
+            getProjection(
+                DbStatements._ID,
+                DbStatements.COLUMN_NAME_TASKID,
+                DbStatements.COLUMN_NAME_START,
+                DbStatements.COLUMN_NAME_END), // The columns to return
+            null,                                      // The columns for the WHERE clause
+            null,                                  // The values for the WHERE clause
+            null,                                     // don't group the rows
+            null,                                     // don't filter by row groups
+            null
         );
         Map<Long, ArrayList<Record>> records = new HashMap<>();
         for (Task task : listOfAllTasks) {

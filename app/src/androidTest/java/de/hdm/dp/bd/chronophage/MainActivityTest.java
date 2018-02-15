@@ -57,7 +57,7 @@ public class MainActivityTest {
     @Test
     public void taskList_activityStarted_isDisplayed() {
         onView(withId(R.id.listView))
-                .check(matches(isDisplayed()));
+            .check(matches(isDisplayed()));
     }
 
     @Test
@@ -72,8 +72,8 @@ public class MainActivityTest {
 
         final String taskName = ALL_TASK_NAMES.get(taskPosition);
         onView(withText(taskName + " started."))
-                .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
-                .check(matches(isDisplayed()));
+            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+            .check(matches(isDisplayed()));
         //click again to stop task and thereby reset its state
         Thread.sleep(1000);
         clickListItemAt(taskPosition);
@@ -89,8 +89,8 @@ public class MainActivityTest {
         final String taskName = ALL_TASK_NAMES.get(taskPosition);
 
         onView(withText(taskName + " stopped."))
-                .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
-                .check(matches(isDisplayed()));
+            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+            .check(matches(isDisplayed()));
     }
 
     @Test
@@ -125,8 +125,8 @@ public class MainActivityTest {
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
-        EvalActivityTest.selectStartDate(2018, 01, 01);
-        EvalActivityTest.selectEndDate(2018, 01, 02);
+        EvalActivityTest.selectStartDate(2018, 1, 1);
+        EvalActivityTest.selectEndDate(2018, 1, 2);
 
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
@@ -140,8 +140,8 @@ public class MainActivityTest {
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
-        EvalActivityTest.selectStartDate(2018, 01, 01);
-        EvalActivityTest.selectEndDate(2018, 01, 02);
+        EvalActivityTest.selectStartDate(2018, 1, 1);
+        EvalActivityTest.selectEndDate(2018, 1, 2);
 
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
@@ -158,7 +158,7 @@ public class MainActivityTest {
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
         EvalActivityTest.selectStartDate(year, month, day);
-        EvalActivityTest.selectEndDate(year, month, day+1);
+        EvalActivityTest.selectEndDate(year, month, day + 1);
 
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
@@ -175,7 +175,7 @@ public class MainActivityTest {
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
         EvalActivityTest.selectStartDate(year, month, day);
-        EvalActivityTest.selectEndDate(year, month, day+1);
+        EvalActivityTest.selectEndDate(year, month, day + 1);
 
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
@@ -202,9 +202,9 @@ public class MainActivityTest {
 
     private void clickListItemAt(int atPosition) {
         onData(anything())
-                .inAdapterView(withId(R.id.listView))
-                .atPosition(atPosition)
-                .perform(click());
+            .inAdapterView(withId(R.id.listView))
+            .atPosition(atPosition)
+            .perform(click());
     }
 
     private Activity getCurrentActivity() {
@@ -225,7 +225,7 @@ public class MainActivityTest {
     private Activity defineActivity(View view) {
         Activity a = null;
         if
-                (view.getContext().getClass().getName().contains("com.android.internal.policy.DecorContext")) {
+            (view.getContext().getClass().getName().contains("com.android.internal.policy.DecorContext")) {
             try {
                 Field field = view.getContext().getClass().getDeclaredField("mPhoneWindow");
                 field.setAccessible(true);

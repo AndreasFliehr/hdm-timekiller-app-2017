@@ -1,6 +1,5 @@
 package de.hdm.dp.bd.chronophage.models.db;
 
-
 import android.content.Context;
 
 import java.util.List;

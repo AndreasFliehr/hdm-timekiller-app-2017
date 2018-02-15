@@ -2,7 +2,6 @@ package de.hdm.dp.bd.chronophage.models.db;
 
 import android.provider.BaseColumns;
 
-
 public class DbStatements implements BaseColumns {
 
     public static final String TABLE_NAME_TASK = "tasks";
@@ -13,7 +12,6 @@ public class DbStatements implements BaseColumns {
     public static final String COLUMN_NAME_START = "start";
     public static final String COLUMN_NAME_END = "end";
     public static final String COLUMN_NAME_DURATION = "duration";
-
 
     private static final String TEXT_TYPE = " TEXT";
     private static final String INT_TYPE = " INTEGER";
@@ -28,19 +26,19 @@ public class DbStatements implements BaseColumns {
     public static final String ASC = "ASC";
 
     static final String SQL_CREATE_TASK_TABLE =
-            "CREATE TABLE " + TABLE_NAME_TASK + " ("
-                    + _ID + ID_DECL + COMMA_SEP
-                    + COLUMN_NAME_TITLE + TEXT_TYPE + " );";
+        "CREATE TABLE " + TABLE_NAME_TASK + " ("
+            + _ID + ID_DECL + COMMA_SEP
+            + COLUMN_NAME_TITLE + TEXT_TYPE + " );";
 
     static final String SQL_CREATE_TASK_DURATION =
-            "CREATE TABLE " + TABLE_NAME_DURATION + " ("
-                    + _ID + ID_DECL + COMMA_SEP
-                    + COLUMN_NAME_TASKID + INT_TYPE + COMMA_SEP
-                    + COLUMN_NAME_START + NUMERIC_TYPE + COMMA_SEP
-                    + COLUMN_NAME_END + NUMERIC_TYPE + COMMA_SEP
-                    + COLUMN_NAME_DURATION + NUMERIC_TYPE + COMMA_SEP
-                    + FOREIGN_KEY_START + COLUMN_NAME_TASKID  + FOREIGN_KEY_REFERENCE
-                    + TABLE_NAME_TASK + FOREIGN_KEY_REFERENCE_START + _ID
-                    + FOREIGN_KEY_REFERENCE_END
-                    + " );";
+        "CREATE TABLE " + TABLE_NAME_DURATION + " ("
+            + _ID + ID_DECL + COMMA_SEP
+            + COLUMN_NAME_TASKID + INT_TYPE + COMMA_SEP
+            + COLUMN_NAME_START + NUMERIC_TYPE + COMMA_SEP
+            + COLUMN_NAME_END + NUMERIC_TYPE + COMMA_SEP
+            + COLUMN_NAME_DURATION + NUMERIC_TYPE + COMMA_SEP
+            + FOREIGN_KEY_START + COLUMN_NAME_TASKID + FOREIGN_KEY_REFERENCE
+            + TABLE_NAME_TASK + FOREIGN_KEY_REFERENCE_START + _ID
+            + FOREIGN_KEY_REFERENCE_END
+            + " );";
 }
