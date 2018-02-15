@@ -30,6 +30,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static de.hdm.dp.bd.chronophage.models.db.DbManager.ALL_TASK_NAMES;
 import static org.hamcrest.CoreMatchers.anything;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
@@ -37,18 +38,9 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
-    private static final ArrayList<String> ALL_TASK_NAMES = new ArrayList<String>() {{
-        add("Internet");
-        add("Lesen");
-        add("Mails");
-        add("Putzen");
-        add("Spielen");
-        add("Vorlesungen");
-    }};
     private int year;
     private int month;
     private int day;
-
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -65,7 +57,7 @@ public class MainActivityTest {
     @Test
     public void taskList_activityStarted_isDisplayed() {
         onView(withId(R.id.listView))
-            .check(matches(isDisplayed()));
+                .check(matches(isDisplayed()));
     }
 
     @Test
@@ -75,21 +67,30 @@ public class MainActivityTest {
 
     @Test
     public void taskList_onItemClick_toggleItemStart() throws InterruptedException {
-        clickListItemAt(0);
+        final int taskPosition = 0;
+        clickListItemAt(taskPosition);
 
-        onView(withText("Internet started."))
-            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
-            .check(matches(isDisplayed()));
+        final String taskName = ALL_TASK_NAMES.get(taskPosition);
+        onView(withText(taskName + " started."))
+                .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+                .check(matches(isDisplayed()));
+        //click again to stop task and thereby reset its state
+        Thread.sleep(1000);
+        clickListItemAt(taskPosition);
     }
 
     @Test
     public void taskList_onItemClick_toggleItemEnd() throws InterruptedException {
-        clickListItemAt(0);
-        clickListItemAt(0);
+        final int taskPosition = 0;
+        clickListItemAt(taskPosition);
+        Thread.sleep(1000);
+        clickListItemAt(taskPosition);
 
-        onView(withText("Internet stopped."))
-            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
-            .check(matches(isDisplayed()));
+        final String taskName = ALL_TASK_NAMES.get(taskPosition);
+
+        onView(withText(taskName + " stopped."))
+                .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+                .check(matches(isDisplayed()));
     }
 
     @Test
@@ -124,8 +125,8 @@ public class MainActivityTest {
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
-        EvalActivityTest.selectStartDate(2018,01,01);
-        EvalActivityTest.selectEndDate(2018,01,02);
+        EvalActivityTest.selectStartDate(2018, 01, 01);
+        EvalActivityTest.selectEndDate(2018, 01, 02);
 
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
@@ -139,8 +140,8 @@ public class MainActivityTest {
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withText(R.string.evaluation)).perform(click());
-        EvalActivityTest.selectStartDate(2018,01,01);
-        EvalActivityTest.selectEndDate(2018,01,02);
+        EvalActivityTest.selectStartDate(2018, 01, 01);
+        EvalActivityTest.selectEndDate(2018, 01, 02);
 
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
@@ -194,16 +195,16 @@ public class MainActivityTest {
     }
 
     private void clickAllListItems() {
-        for(int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             clickListItemAt(i);
         }
     }
 
     private void clickListItemAt(int atPosition) {
         onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(atPosition)
-            .perform(click());
+                .inAdapterView(withId(R.id.listView))
+                .atPosition(atPosition)
+                .perform(click());
     }
 
     private Activity getCurrentActivity() {
@@ -224,7 +225,7 @@ public class MainActivityTest {
     private Activity defineActivity(View view) {
         Activity a = null;
         if
-            (view.getContext().getClass().getName().contains("com.android.internal.policy.DecorContext")) {
+                (view.getContext().getClass().getName().contains("com.android.internal.policy.DecorContext")) {
             try {
                 Field field = view.getContext().getClass().getDeclaredField("mPhoneWindow");
                 field.setAccessible(true);
