@@ -1,6 +1,7 @@
 package de.hdm.dp.bd.chronophage;
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.InputType;
@@ -27,11 +28,6 @@ import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
-
-/**
- * EvalActivity ist die Aktivität, die beim Klick auf den Eintrag
- * "Evaluation" im Drawer-Menü aufgerufen wird
- */
 public class EvalActivity extends CommonActivity {
     public static final String START_DATE_DEFAULT_TEXT = "Start date";
     public static final String END_DATE_DEFAULT_TEXT = "End date";
@@ -39,10 +35,11 @@ public class EvalActivity extends CommonActivity {
     private EditText endDateEditText;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     private PieChart pieChart;
+    public static final int[] OUR_COLORS = {
+        Color.rgb(193, 37, 82), Color.rgb(255, 102, 0), Color.rgb(245, 199, 0),
+        Color.rgb(106, 150, 31), Color.rgb(179, 100, 53), Color.rgb(19, 57, 147)
+    };
 
-    /**
-     * diese Methode muss nicht verändert werden, sie baut das Kuchendiagramm auf
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +50,7 @@ public class EvalActivity extends CommonActivity {
         startDateEditText = (EditText) findViewById(R.id.startDateEditText);
         endDateEditText = (EditText) findViewById(R.id.endDateEditText);
 
-        //Content of the pie chart
+        // Content of the pie chart
         pieChart = (PieChart) findViewById(R.id.chart);
 
         PieDataSet dataset = new PieDataSet(getEntries(), "Time spent");
@@ -85,7 +82,7 @@ public class EvalActivity extends CommonActivity {
                 }
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
-                .DAY_OF_MONTH));
+            .DAY_OF_MONTH));
 
         final DatePickerDialog endDatePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -99,7 +96,7 @@ public class EvalActivity extends CommonActivity {
                 }
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
-                .DAY_OF_MONTH));
+            .DAY_OF_MONTH));
 
         // prevent showing keyboard
         startDateEditText.setInputType(InputType.TYPE_NULL);
