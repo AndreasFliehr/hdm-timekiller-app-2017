@@ -34,6 +34,14 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
+    private static final ArrayList<String> ALL_TASK_NAMES = new ArrayList<String>() {{
+        add("Internet");
+        add("Lesen");
+        add("Mails");
+        add("Putzen");
+        add("Spielen");
+        add("Vorlesungen");
+    }};
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -45,18 +53,12 @@ public class MainActivityTest {
 
     @Test
     public void taskList_activityStarted_hasDefaultValues() {
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(2)
-            .perform(click());
+        clickListItemAt(2);
     }
 
     @Test
     public void taskList_onItemClick_toggleItemStart() throws InterruptedException {
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(0)
-            .perform(click());
+        clickListItemAt(0);
 
         onView(withText("Internet started."))
             .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
@@ -65,14 +67,8 @@ public class MainActivityTest {
 
     @Test
     public void taskList_onItemClick_toggleItemEnd() throws InterruptedException {
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(0)
-            .perform(click());
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(0)
-            .perform(click());
+        clickListItemAt(0);
+        clickListItemAt(0);
 
         onView(withText("Internet stopped."))
             .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
@@ -102,15 +98,7 @@ public class MainActivityTest {
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
         ChartData chartData = pieChart.getData();
-        ArrayList<String> expectedChartDataVals = new ArrayList<String>() {{
-            add("Internet");
-            add("Lesen");
-            add("Mails");
-            add("Putzen");
-            add("Spielen");
-            add("Vorlesungen");
-        }};
-        assertEquals(expectedChartDataVals, chartData.getXVals());
+        assertEquals(ALL_TASK_NAMES, chartData.getXVals());
     }
 
     private void preparePieChartTest() throws InterruptedException {
@@ -120,29 +108,15 @@ public class MainActivityTest {
     }
 
     private void clickAllListItems() {
+        for(int i = 0; i < 6; i++) {
+            clickListItemAt(i);
+        }
+    }
+
+    private void clickListItemAt(int atPosition) {
         onData(anything())
             .inAdapterView(withId(R.id.listView))
-            .atPosition(0)
-            .perform(click());
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(1)
-            .perform(click());
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(2)
-            .perform(click());
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(3)
-            .perform(click());
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(4)
-            .perform(click());
-        onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(5)
+            .atPosition(atPosition)
             .perform(click());
     }
 
