@@ -71,7 +71,7 @@ public class Record {
         return contentValues;
     }
 
-    public class RecordException extends RuntimeException {
+    private static class RecordException extends RuntimeException {
         private RecordException(String message) {
             super(message);
         }
