@@ -101,6 +101,36 @@ public class MainActivityTest {
         assertEquals(ALL_TASK_NAMES, chartData.getXVals());
     }
 
+    @Test
+    public void pieChart_startAndEndDateOutOfRange_containsNoValues() throws InterruptedException {
+        preparePieChartTest();
+
+        onView(withContentDescription("Open navigation drawer")).perform(click());
+        onView(withText(R.string.evaluation)).perform(click());
+        EvalActivityTest.selectStartDate(2018,01,01);
+        EvalActivityTest.selectEndDate(2018,01,02);
+
+        Activity act = getCurrentActivity();
+        PieChart pieChart = act.findViewById(R.id.chart);
+        ChartData chartData = pieChart.getData();
+        assertEquals(0, chartData.getXValCount());
+    }
+
+    @Test
+    public void pieChart_startAndEndDateOutOfRange_containsNoLabels() throws InterruptedException {
+        preparePieChartTest();
+
+        onView(withContentDescription("Open navigation drawer")).perform(click());
+        onView(withText(R.string.evaluation)).perform(click());
+        EvalActivityTest.selectStartDate(2018,01,01);
+        EvalActivityTest.selectEndDate(2018,01,02);
+
+        Activity act = getCurrentActivity();
+        PieChart pieChart = act.findViewById(R.id.chart);
+        ChartData chartData = pieChart.getData();
+        assertEquals(0, chartData.getXVals().size());
+    }
+
     private void preparePieChartTest() throws InterruptedException {
         clickAllListItems();
         Thread.sleep(1000);

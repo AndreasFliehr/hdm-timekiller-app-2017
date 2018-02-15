@@ -103,14 +103,14 @@ public class EvalActivityTest {
         assertEquals("End date", endDateEditText.getText().toString());
     }
 
-    private void selectStartDate(int year, int month, int day) {
+    public static void selectStartDate(int year, int month, int day) {
         onView(withId(R.id.startDateEditText)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
             .perform(PickerActions.setDate(year, month, day));
         onView(withId(android.R.id.button1)).perform(click());
     }
 
-    private void selectEndDate(int year, int month, int day) {
+    public static void selectEndDate(int year, int month, int day) {
         onView(withId(R.id.endDateEditText)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
             .perform(PickerActions.setDate(year, month, day));
