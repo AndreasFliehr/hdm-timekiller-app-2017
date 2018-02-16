@@ -1,27 +1,16 @@
 package de.hdm.dp.bd.chronophage;
 
-import android.content.Context;
 import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.ChartData;
-
 import org.hamcrest.Matchers;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.hdm.dp.bd.chronophage.models.db.DbManager;
-import de.hdm.dp.bd.chronophage.models.db.DbStatements;
-
-import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -35,44 +24,13 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
-public class EvalActivityTest {
-    private DbManager dbManager = new DbManager(TARGET_CONTEXT);
-    private static final Context TARGET_CONTEXT = getTargetContext();
-
+public class EvalActivityDatePickerTest {
     @Rule
     public ActivityTestRule<EvalActivity> eActivityRule = new ActivityTestRule<>(EvalActivity.class);
 
-    @BeforeClass
-    public static void initTestDb() {
-        DbManager.DATABASE_NAME = "guiTest.db";
-        new DbManager(TARGET_CONTEXT);
-    }
-
-    @Before
-    @After
-    public void clearRecords() {
-        dbManager.getWritableDatabase().delete(DbStatements.TABLE_NAME_DURATION, null, null);
-    }
-
-    @Test
-    public void pieChart_taskListRecordsEmpty_containsNoValues() {
-        final EvalActivity act = eActivityRule.getActivity();
-        PieChart pieChart = act.findViewById(R.id.chart);
-        ChartData chartData = pieChart.getData();
-        assertEquals(0, chartData.getXValCount());
-    }
-
-    @Test
-    public void pieChart_taskListRecordsEmpty_containsNoLabels() {
-        final EvalActivity act = eActivityRule.getActivity();
-        PieChart pieChart = act.findViewById(R.id.chart);
-        ChartData chartData = pieChart.getData();
-        assertEquals(0, chartData.getXVals().size());
-    }
-
     @Test
     public void datePicker_startDateSelected_isDisplayedCorrectly() {
-        selectStartDate(2018, 1, 1);
+        selectStartDate(1);
         final EvalActivity act = eActivityRule.getActivity();
         EditText startDateEditText = act.findViewById(R.id.startDateEditText);
         assertEquals("01.01.2018", startDateEditText.getText().toString());
@@ -80,7 +38,7 @@ public class EvalActivityTest {
 
     @Test
     public void datePicker_endDateSelected_isDisplayedCorrectly() {
-        selectEndDate(2018, 1, 2);
+        selectEndDate(2);
         final EvalActivity act = eActivityRule.getActivity();
         EditText endDateEditText = act.findViewById(R.id.endDateEditText);
         assertEquals("02.01.2018", endDateEditText.getText().toString());
@@ -88,8 +46,8 @@ public class EvalActivityTest {
 
     @Test
     public void datePicker_startDateAfterEndDate_cantBeApplied() {
-        selectEndDate(2018, 1, 1);
-        selectStartDate(2018, 1, 2);
+        selectEndDate(1);
+        selectStartDate(2);
 
         onView(withText("Start Date must be before end!"))
             .inRoot(withDecorView(not(is(eActivityRule.getActivity().getWindow().getDecorView()))))
@@ -98,8 +56,8 @@ public class EvalActivityTest {
 
     @Test
     public void datePicker_endDateBeforeStartDate_cantBeApplied() {
-        selectStartDate(2018, 1, 2);
-        selectEndDate(2018, 1, 1);
+        selectStartDate(2);
+        selectEndDate(1);
 
         onView(withText("End Date must be after start!"))
             .inRoot(withDecorView(not(is(eActivityRule.getActivity().getWindow().getDecorView()))))
@@ -108,8 +66,8 @@ public class EvalActivityTest {
 
     @Test
     public void datePicker_startDateAfterEndDate_noChangesInPresentation() {
-        selectEndDate(2018, 1, 1);
-        selectStartDate(2018, 1, 2);
+        selectEndDate(1);
+        selectStartDate(2);
 
         final EvalActivity act = eActivityRule.getActivity();
         EditText startDateEditText = act.findViewById(R.id.startDateEditText);
@@ -118,25 +76,25 @@ public class EvalActivityTest {
 
     @Test
     public void datePicker_endDateBeforeStartDate_noChangesInPresentation() {
-        selectStartDate(2018, 1, 2);
-        selectEndDate(2018, 1, 1);
+        selectStartDate(2);
+        selectEndDate(1);
 
         final EvalActivity act = eActivityRule.getActivity();
         EditText endDateEditText = act.findViewById(R.id.endDateEditText);
         assertEquals("End date", endDateEditText.getText().toString());
     }
 
-    public static void selectStartDate(int year, int month, int day) {
+    private void selectStartDate(int day) {
         onView(withId(R.id.startDateEditText)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-            .perform(PickerActions.setDate(year, month, day));
+            .perform(PickerActions.setDate(2018, 1, day));
         onView(withId(android.R.id.button1)).perform(click());
     }
 
-    public static void selectEndDate(int year, int month, int day) {
+    private void selectEndDate(int day) {
         onView(withId(R.id.endDateEditText)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-            .perform(PickerActions.setDate(year, month, day));
+            .perform(PickerActions.setDate(2018, 1, day));
         onView(withId(android.R.id.button1)).perform(click());
     }
 }
