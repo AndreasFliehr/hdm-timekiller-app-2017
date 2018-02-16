@@ -102,10 +102,9 @@ public class DatabaseTest {
 
     private Cursor getMostRecentRecordFor(Task task) {
         return dbManager.getReadableDatabase().rawQuery("SELECT * FROM " +
-                        DbStatements.TABLE_NAME_DURATION + " WHERE " +
-                        DbStatements.COLUMN_NAME_TASKID + " = ?" +
-                        " ORDER BY " + DbStatements._ID + " DESC LIMIT 1",
-                new String[]{"" + task.getId()});
+                DbStatements.TABLE_NAME_DURATION + " WHERE " +
+                DbStatements.COLUMN_NAME_TASKID + " = ?" +
+                " ORDER BY " + DbStatements._ID + " DESC LIMIT 1",
+            new String[] {"" + task.getId()});
     }
-
 }
