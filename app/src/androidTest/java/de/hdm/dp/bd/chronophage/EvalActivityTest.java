@@ -1,5 +1,6 @@
 package de.hdm.dp.bd.chronophage;
 
+import android.content.Context;
 import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -10,10 +11,17 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.ChartData;
 
 import org.hamcrest.Matchers;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import de.hdm.dp.bd.chronophage.models.db.DbManager;
+import de.hdm.dp.bd.chronophage.models.db.DbStatements;
+
+import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -28,8 +36,23 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class EvalActivityTest {
+    private DbManager dbManager = new DbManager(TARGET_CONTEXT);
+    private static final Context TARGET_CONTEXT = getTargetContext();
+
     @Rule
     public ActivityTestRule<EvalActivity> eActivityRule = new ActivityTestRule<>(EvalActivity.class);
+
+    @BeforeClass
+    public static void initTestDb() {
+        DbManager.DATABASE_NAME = "guiTest.db";
+        new DbManager(TARGET_CONTEXT);
+    }
+
+    @Before
+    @After
+    public void clearRecords() {
+        dbManager.getWritableDatabase().delete(DbStatements.TABLE_NAME_DURATION, null, null);
+    }
 
     @Test
     public void pieChart_taskListRecordsEmpty_containsNoValues() {
@@ -74,7 +97,7 @@ public class EvalActivityTest {
     }
 
     @Test
-    public void datePicker_EndDateBeforeStartDate_cantBeApplied() {
+    public void datePicker_endDateBeforeStartDate_cantBeApplied() {
         selectStartDate(2018, 1, 2);
         selectEndDate(2018, 1, 1);
 
@@ -94,7 +117,7 @@ public class EvalActivityTest {
     }
 
     @Test
-    public void datePicker_EndDateBeforeStartDate_noChangesInPresentation() {
+    public void datePicker_endDateBeforeStartDate_noChangesInPresentation() {
         selectStartDate(2018, 1, 2);
         selectEndDate(2018, 1, 1);
 
