@@ -37,7 +37,7 @@ public class EvalActivity extends CommonActivity {
     private PieChart pieChart;
     public static final int[] OUR_COLORS = {
         Color.rgb(193, 37, 82), Color.rgb(255, 102, 0), Color.rgb(245, 199, 0),
-        Color.rgb(106, 150, 31), Color.rgb(179, 100, 53), Color.rgb(19, 57, 147)
+        Color.rgb(106, 150, 31), Color.rgb(179, 100, 53), Color.rgb(66, 155, 244)
     };
 
     @Override
@@ -59,7 +59,7 @@ public class EvalActivity extends CommonActivity {
         PieData data = new PieData(getLabels(), dataset); // initialize PieData
         pieChart.setData(data); //set data into chart
 
-        dataset.setColors(ColorTemplate.COLORFUL_COLORS); // set the color
+        dataset.setColors(OUR_COLORS); // set the color
         dataset.setValueTextSize(16);
 
         setupDatePicker();
