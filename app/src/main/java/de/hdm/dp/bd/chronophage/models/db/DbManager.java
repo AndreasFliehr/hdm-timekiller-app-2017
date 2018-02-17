@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressFBWarnings("MS_SHOULD_BE_FINAL")
 public class DbManager extends SQLiteOpenHelper {
     private static int DATABASE_VERSION = 1;
     public static String DATABASE_NAME = "example.db";
