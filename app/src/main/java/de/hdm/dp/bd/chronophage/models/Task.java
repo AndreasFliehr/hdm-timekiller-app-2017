@@ -100,7 +100,7 @@ public class Task {
         return name;
     }
 
-    public class TaskException extends RuntimeException {
+    static class TaskException extends RuntimeException {
         private TaskException(String message) {
             super(message);
         }

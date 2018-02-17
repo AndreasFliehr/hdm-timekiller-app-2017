@@ -17,16 +17,16 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
-import de.hdm.dp.bd.chronophage.models.Task;
-import de.hdm.dp.bd.chronophage.models.TaskList;
-import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import de.hdm.dp.bd.chronophage.models.Task;
+import de.hdm.dp.bd.chronophage.models.TaskList;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 public class EvalActivity extends CommonActivity {
     public static final String START_DATE_DEFAULT_TEXT = "Start date";
@@ -35,10 +35,10 @@ public class EvalActivity extends CommonActivity {
     private EditText endDateEditText;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     private PieChart pieChart;
-    public static final int[] OUR_COLORS = {
-        Color.rgb(193, 37, 82), Color.rgb(255, 102, 0),
-        Color.rgb(245, 199, 0), Color.rgb(106, 150, 31),
-        Color.rgb(179, 100, 53), Color.rgb(66, 155, 244)
+    private static final int[] OUR_COLORS = {
+            Color.rgb(193, 37, 82), Color.rgb(255, 102, 0),
+            Color.rgb(245, 199, 0), Color.rgb(106, 150, 31),
+            Color.rgb(179, 100, 53), Color.rgb(66, 155, 244)
     };
 
     @Override
@@ -72,45 +72,15 @@ public class EvalActivity extends CommonActivity {
 
         // implement the date picker dialog
         final DatePickerDialog startDatePicker = new DatePickerDialog(this,
-            new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                    if (beforeEnd(year, month, day)) {
-                        openDatePicker(year, month, day, startDateEditText);
-                        updatePieChart();
-                    } else {
-                        final Toast toast = Toast.makeText(
-                            getApplicationContext(),
-                            "Start Date must be before end!",
-                            Toast.LENGTH_LONG
-                        );
-                        toast.show();
-                    }
-                }
-            },
-            calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(
-            Calendar.DAY_OF_MONTH)
+                new OnStartDateSetListener(),
+                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(
+                Calendar.DAY_OF_MONTH)
         );
 
         final DatePickerDialog endDatePicker = new DatePickerDialog(this,
-            new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                    if (afterStart(year, month, day)) {
-                        openDatePicker(year, month, day, endDateEditText);
-                        updatePieChart();
-                    } else {
-                        final Toast toast = Toast.makeText(
-                            getApplicationContext(),
-                            "End Date must be after start!",
-                            Toast.LENGTH_LONG
-                        );
-                        toast.show();
-                    }
-                }
-            },
-            calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
-            .DAY_OF_MONTH)
+                new OnEndDateSetListener(),
+                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
+                .DAY_OF_MONTH)
         );
 
         // prevent showing keyboard
@@ -121,23 +91,9 @@ public class EvalActivity extends CommonActivity {
         endDateEditText.setText(END_DATE_DEFAULT_TEXT);
 
         // register from edit text listener
-        startDateEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("EvalActivity", "onclick gefeuert");
+        startDateEditText.setOnClickListener(new DatePickerOnClickListener(startDatePicker));
 
-                startDatePicker.show();
-            }
-        });
-
-        endDateEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("EvalActivity", "onclick gefeuert");
-
-                endDatePicker.show();
-            }
-        });
+        endDateEditText.setOnClickListener(new DatePickerOnClickListener(endDatePicker));
     }
 
     private boolean afterStart(int year, int month, int day) {
@@ -149,7 +105,7 @@ public class EvalActivity extends CommonActivity {
             return end.after(start);
         } catch (ParseException e) {
             Log.e(this.getClass().getSimpleName(),
-                "Parsing date from startDateText failed " + e
+                    "Parsing date from startDateText failed " + e
             );
             return true;
         }
@@ -164,7 +120,7 @@ public class EvalActivity extends CommonActivity {
             return start.before(end);
         } catch (ParseException e) {
             Log.e(this.getClass().getSimpleName(),
-                "Parsing date from startDateText failed " + e
+                    "Parsing date from startDateText failed " + e
             );
             return true;
         }
@@ -227,5 +183,54 @@ public class EvalActivity extends CommonActivity {
             labels.add(task.getName());
         }
         return labels;
+    }
+
+    private static class DatePickerOnClickListener implements View.OnClickListener {
+        private final DatePickerDialog startDatePicker;
+
+        DatePickerOnClickListener(DatePickerDialog startDatePicker) {
+            this.startDatePicker = startDatePicker;
+        }
+
+        @Override
+        public void onClick(View view) {
+            Log.d("EvalActivity", "onclick gefeuert");
+
+            startDatePicker.show();
+        }
+    }
+
+    private class OnStartDateSetListener implements DatePickerDialog.OnDateSetListener {
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            if (beforeEnd(year, month, day)) {
+                openDatePicker(year, month, day, startDateEditText);
+                updatePieChart();
+            } else {
+                final Toast toast = Toast.makeText(
+                        getApplicationContext(),
+                        "Start Date must be before end!",
+                        Toast.LENGTH_LONG
+                );
+                toast.show();
+            }
+        }
+    }
+
+    private class OnEndDateSetListener implements DatePickerDialog.OnDateSetListener {
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            if (afterStart(year, month, day)) {
+                openDatePicker(year, month, day, endDateEditText);
+                updatePieChart();
+            } else {
+                final Toast toast = Toast.makeText(
+                        getApplicationContext(),
+                        "End Date must be after start!",
+                        Toast.LENGTH_LONG
+                );
+                toast.show();
+            }
+        }
     }
 }

@@ -101,7 +101,8 @@ task customFindbugs(type: FindBugs) {
     ignoreFailures = true
     effort = "max"
     reportLevel = "low"
-    classes = files("$project.buildDir/intermediates/classes")
+    //FindBugs soll keine Testklassen einbeziehen, daher nur Debug
+    classes = files("$project.buildDir/intermediates/classes/debug")
     //Dieses File wird normalerweise in Android Studio automatisch
     //angelegt und enthält alle Files, die nicht durch FindBugs
     //analysiert werden sollen

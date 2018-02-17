@@ -1,10 +1,10 @@
 package de.hdm.dp.bd.chronophage.models;
 
-import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
 
 public class TaskList {
 
@@ -20,8 +20,8 @@ public class TaskList {
 
     public TaskList(TaskListProvider context, Date before, Date after) {
         this.taskListProvider = context;
-        this.before = before;
-        this.after = after;
+        this.before = new Date(before.getTime());
+        this.after = new Date(after.getTime());
     }
 
     public void setTaskActive(Task task) {

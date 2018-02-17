@@ -2,9 +2,9 @@ package de.hdm.dp.bd.chronophage.models;
 
 import android.content.ContentValues;
 
-import de.hdm.dp.bd.chronophage.models.db.DbStatements;
-
 import java.util.Date;
+
+import de.hdm.dp.bd.chronophage.models.db.DbStatements;
 
 public class Record {
     private long id;
@@ -13,8 +13,8 @@ public class Record {
 
     public Record(long id, Date start, Date end) {
         this.id = id;
-        this.start = start;
-        this.end = end;
+        this.start = new Date(start.getTime());
+        this.end = new Date(end.getTime());
     }
 
     Record() {

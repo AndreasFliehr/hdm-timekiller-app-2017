@@ -6,20 +6,24 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+@SuppressFBWarnings("MS_SHOULD_BE_FINAL")
 public class DbManager extends SQLiteOpenHelper {
-    public static int DATABASE_VERSION = 1;
+    private static int DATABASE_VERSION = 1;
     public static String DATABASE_NAME = "example.db";
-    public static final ArrayList<String> ALL_TASK_NAMES = new ArrayList<String>() {
-        {
-            add("Internet");
-            add("Lesen");
-            add("Mails");
-            add("Putzen");
-            add("Spielen");
-            add("Vorlesungen");
-        }
-    };
+    public static final List<String> ALL_TASK_NAMES = Collections.unmodifiableList(
+            new ArrayList<String>() {
+                {
+                    add("Internet");
+                    add("Lesen");
+                    add("Mails");
+                    add("Putzen");
+                    add("Spielen");
+                    add("Vorlesungen");
+                }
+            });
 
     public DbManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,9 +46,9 @@ public class DbManager extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(DbStatements.COLUMN_NAME_TITLE, name);
             db.insert(
-                DbStatements.TABLE_NAME_TASK,
-                DbStatements.COLUMN_NAME_TITLE,
-                values);
+                    DbStatements.TABLE_NAME_TASK,
+                    DbStatements.COLUMN_NAME_TITLE,
+                    values);
         }
     }
 
