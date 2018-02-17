@@ -84,7 +84,8 @@ public class TaskListTest {
         taskListProvider.taskList.add(withRecordsAfter);
         taskListProvider.taskList.add(withoutRecordsAfter);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasksWithRecords();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate)
+            .getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));
@@ -100,7 +101,8 @@ public class TaskListTest {
         Date testDate = Date.from(Instant.now());
         taskListProvider.taskList.add(withoutRecordsAfter);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate).getAllTasksWithRecords();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsAfter(testDate)
+            .getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.isEmpty());
     }
@@ -121,7 +123,8 @@ public class TaskListTest {
         taskListProvider.taskList.add(withRecordsBefore);
         taskListProvider.taskList.add(withoutRecordsBefore);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasksWithRecords();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate)
+            .getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.contains(withRecords));
         assertFalse(tasksWithRecords.contains(withoutRecords));
@@ -137,7 +140,8 @@ public class TaskListTest {
         Date testDate = Date.from(Instant.now());
         taskListProvider.taskList.add(withoutRecordsBefore);
         //executeTest
-        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate).getAllTasksWithRecords();
+        final List<Task> tasksWithRecords = taskList.getFilteredTasksWithRecordsBefore(testDate)
+            .getAllTasksWithRecords();
         assertNotNull(tasksWithRecords);
         assertTrue(tasksWithRecords.isEmpty());
     }

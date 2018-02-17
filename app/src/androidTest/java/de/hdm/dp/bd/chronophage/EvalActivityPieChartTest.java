@@ -62,7 +62,11 @@ public class EvalActivityPieChartTest {
     @Before
     @After
     public void clearRecords() {
-        dbManager.getWritableDatabase().delete(DbStatements.TABLE_NAME_DURATION, null, null);
+        dbManager.getWritableDatabase().delete(DbStatements
+                .TABLE_NAME_DURATION,
+            null,
+            null
+        );
     }
 
     @Test
@@ -248,7 +252,9 @@ public class EvalActivityPieChartTest {
     private Activity defineActivity(View view) {
         Activity a = null;
         if
-            (view.getContext().getClass().getName().contains("com.android.internal.policy.DecorContext")) {
+            (view.getContext().getClass().getName().contains(
+            "com.android.internal.policy.DecorContext"
+        )) {
             try {
                 Field field = view.getContext().getClass().getDeclaredField("mPhoneWindow");
                 field.setAccessible(true);
