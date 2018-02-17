@@ -10,14 +10,16 @@ import java.util.ArrayList;
 public class DbManager extends SQLiteOpenHelper {
     public static int DATABASE_VERSION = 1;
     public static String DATABASE_NAME = "example.db";
-    public static final ArrayList<String> ALL_TASK_NAMES = new ArrayList<String>() {{
-        add("Internet");
-        add("Lesen");
-        add("Mails");
-        add("Putzen");
-        add("Spielen");
-        add("Vorlesungen");
-    }};
+    public static final ArrayList<String> ALL_TASK_NAMES = new ArrayList<String>() {
+        {
+            add("Internet");
+            add("Lesen");
+            add("Mails");
+            add("Putzen");
+            add("Spielen");
+            add("Vorlesungen");
+        }
+    };
 
     public DbManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

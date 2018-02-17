@@ -38,7 +38,9 @@ public class Task {
 
     public void start() {
         if (active) {
-            throw new TaskException("Cannot start task that was already started without stopping it first!");
+            throw new TaskException(
+                "Cannot start task that was already started without stopping it first!"
+            );
         }
         active = true;
         activeRecord = new Record();

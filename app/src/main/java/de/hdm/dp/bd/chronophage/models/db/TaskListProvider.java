@@ -1,8 +1,8 @@
 package de.hdm.dp.bd.chronophage.models.db;
 
-import java.util.List;
-
 import de.hdm.dp.bd.chronophage.models.Task;
+
+import java.util.List;
 
 public interface TaskListProvider {
     List<Task> getAllTasks();

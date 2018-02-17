@@ -1,10 +1,10 @@
 package de.hdm.dp.bd.chronophage.models;
 
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
 
 public class TaskList {
 

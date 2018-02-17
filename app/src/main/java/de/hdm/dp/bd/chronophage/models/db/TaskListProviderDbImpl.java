@@ -2,9 +2,9 @@ package de.hdm.dp.bd.chronophage.models.db;
 
 import android.content.Context;
 
-import java.util.List;
-
 import de.hdm.dp.bd.chronophage.models.Task;
+
+import java.util.List;
 
 public class TaskListProviderDbImpl implements TaskListProvider {
     private final Context context;

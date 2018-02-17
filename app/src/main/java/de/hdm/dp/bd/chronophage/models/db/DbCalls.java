@@ -5,13 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import de.hdm.dp.bd.chronophage.models.Record;
+import de.hdm.dp.bd.chronophage.models.Task;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import de.hdm.dp.bd.chronophage.models.Record;
-import de.hdm.dp.bd.chronophage.models.Task;
 
 public class DbCalls {
 
@@ -36,12 +36,13 @@ public class DbCalls {
 
         Cursor c = db.query(
             DbStatements.TABLE_NAME_TASK, // The table to query
-            getProjection(DbStatements._ID, DbStatements.COLUMN_NAME_TITLE), // The columns to return
-            null,                                      // The columns for the WHERE clause
-            null,                                  // The values for the WHERE clause
-            null,                                     // don't group the rows
-            null,                                     // don't filter by row groups
-            getSortOrder(DbStatements.COLUMN_NAME_TITLE, DbStatements.ASC) // The sort order
+            // The columns to return
+            getProjection(DbStatements._ID, DbStatements.COLUMN_NAME_TITLE),
+            null,          // The columns for the WHERE clause
+            null,      // The values for the WHERE clause
+            null,          // don't group the rows
+            null,           // don't filter by row groups
+            getSortOrder(DbStatements.COLUMN_NAME_TITLE, DbStatements.ASC)
         );
 
         c.moveToFirst();
@@ -85,7 +86,8 @@ public class DbCalls {
         while (!c.isAfterLast()) {
             long taskId = c.getLong(c.getColumnIndexOrThrow(DbStatements.COLUMN_NAME_TASKID));
             long id = c.getLong(c.getColumnIndexOrThrow(DbStatements._ID));
-            Date start = new Date(c.getLong(c.getColumnIndexOrThrow((DbStatements.COLUMN_NAME_START))));
+            Date start = new Date(c.getLong(c.getColumnIndexOrThrow((
+                DbStatements.COLUMN_NAME_START))));
             Date end = new Date(c.getLong(c.getColumnIndexOrThrow((DbStatements.COLUMN_NAME_END))));
             Record record = new Record(id, start, end);
             records.get(taskId).add(record);
@@ -109,9 +111,13 @@ public class DbCalls {
         ContentValues contentValues = toInsert.toContentValues();
         contentValues.put(DbStatements.COLUMN_NAME_TASKID, task.getId());
 
-        final long id = db.insert(DbStatements.TABLE_NAME_DURATION, null, contentValues);
+        final long id = db.insert(
+            DbStatements.TABLE_NAME_DURATION, null, contentValues
+        );
         if (id < 0) {
-            throw new IllegalStateException("Insert of record " + toInsert + " for task " + task + " failed!");
+            throw new IllegalStateException(
+                "Insert of record " + toInsert + " for task " + task + " failed!"
+            );
         }
     }
 }
