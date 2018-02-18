@@ -2,9 +2,9 @@ package de.hdm.dp.bd.chronophage.models;
 
 import android.content.ContentValues;
 
-import java.util.Date;
-
 import de.hdm.dp.bd.chronophage.models.db.DbStatements;
+
+import java.util.Date;
 
 public class Record {
     private long id;

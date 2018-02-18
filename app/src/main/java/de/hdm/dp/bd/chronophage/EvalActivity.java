@@ -17,16 +17,16 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import de.hdm.dp.bd.chronophage.models.Task;
+import de.hdm.dp.bd.chronophage.models.TaskList;
+import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import de.hdm.dp.bd.chronophage.models.Task;
-import de.hdm.dp.bd.chronophage.models.TaskList;
-import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 public class EvalActivity extends CommonActivity {
     public static final String START_DATE_DEFAULT_TEXT = "Start date";
