@@ -13,16 +13,16 @@ public class DbManager extends SQLiteOpenHelper {
     private static int DATABASE_VERSION = 1;
     public static String DATABASE_NAME = "example.db";
     public static final List<String> ALL_TASK_NAMES = Collections.unmodifiableList(
-            new ArrayList<String>() {
-                {
-                    add("Internet");
-                    add("Lesen");
-                    add("Mails");
-                    add("Putzen");
-                    add("Spielen");
-                    add("Vorlesungen");
-                }
-            });
+        new ArrayList<String>() {
+            {
+                add("Internet");
+                add("Lesen");
+                add("Mails");
+                add("Putzen");
+                add("Spielen");
+                add("Vorlesungen");
+            }
+        });
 
     public DbManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,9 +45,9 @@ public class DbManager extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(DbStatements.COLUMN_NAME_TITLE, name);
             db.insert(
-                    DbStatements.TABLE_NAME_TASK,
-                    DbStatements.COLUMN_NAME_TITLE,
-                    values);
+                DbStatements.TABLE_NAME_TASK,
+                DbStatements.COLUMN_NAME_TITLE,
+                values);
         }
     }
 

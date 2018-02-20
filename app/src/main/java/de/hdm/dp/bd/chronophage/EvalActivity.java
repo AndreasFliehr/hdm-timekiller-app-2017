@@ -36,9 +36,9 @@ public class EvalActivity extends CommonActivity {
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     private PieChart pieChart;
     private static final int[] OUR_COLORS = {
-            Color.rgb(193, 37, 82), Color.rgb(255, 102, 0),
-            Color.rgb(245, 199, 0), Color.rgb(106, 150, 31),
-            Color.rgb(179, 100, 53), Color.rgb(66, 155, 244)
+        Color.rgb(193, 37, 82), Color.rgb(255, 102, 0),
+        Color.rgb(245, 199, 0), Color.rgb(106, 150, 31),
+        Color.rgb(179, 100, 53), Color.rgb(66, 155, 244)
     };
 
     @Override
@@ -72,15 +72,15 @@ public class EvalActivity extends CommonActivity {
 
         // implement the date picker dialog
         final DatePickerDialog startDatePicker = new DatePickerDialog(this,
-                new OnStartDateSetListener(),
-                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(
-                Calendar.DAY_OF_MONTH)
+            new OnStartDateSetListener(),
+            calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(
+            Calendar.DAY_OF_MONTH)
         );
 
         final DatePickerDialog endDatePicker = new DatePickerDialog(this,
-                new OnEndDateSetListener(),
-                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
-                .DAY_OF_MONTH)
+            new OnEndDateSetListener(),
+            calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar
+            .DAY_OF_MONTH)
         );
 
         // prevent showing keyboard
@@ -105,7 +105,7 @@ public class EvalActivity extends CommonActivity {
             return end.after(start);
         } catch (ParseException e) {
             Log.e(this.getClass().getSimpleName(),
-                    "Parsing date from startDateText failed " + e
+                "Parsing date from startDateText failed " + e
             );
             return true;
         }
@@ -120,7 +120,7 @@ public class EvalActivity extends CommonActivity {
             return start.before(end);
         } catch (ParseException e) {
             Log.e(this.getClass().getSimpleName(),
-                    "Parsing date from startDateText failed " + e
+                "Parsing date from startDateText failed " + e
             );
             return true;
         }
@@ -208,9 +208,9 @@ public class EvalActivity extends CommonActivity {
                 updatePieChart();
             } else {
                 final Toast toast = Toast.makeText(
-                        getApplicationContext(),
-                        "Start Date must be before end!",
-                        Toast.LENGTH_LONG
+                    getApplicationContext(),
+                    "Start Date must be before end!",
+                    Toast.LENGTH_LONG
                 );
                 toast.show();
             }
@@ -225,9 +225,9 @@ public class EvalActivity extends CommonActivity {
                 updatePieChart();
             } else {
                 final Toast toast = Toast.makeText(
-                        getApplicationContext(),
-                        "End Date must be after start!",
-                        Toast.LENGTH_LONG
+                    getApplicationContext(),
+                    "End Date must be after start!",
+                    Toast.LENGTH_LONG
                 );
                 toast.show();
             }
