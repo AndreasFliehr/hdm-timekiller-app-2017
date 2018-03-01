@@ -19,6 +19,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import de.hdm.dp.bd.chronophage.models.db.DbManager;
+
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     @Rule
@@ -28,6 +30,13 @@ public class MainActivityTest {
     public void taskList_activityStarted_isDisplayed() {
         onView(withId(R.id.listView))
             .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void taskList_activityStarted_hasExpectedNumberOfValues() {
+        // Throws exception if displayed TaskList doesn't match expected TaskList
+        final int lastExpectedListItemIndex = DbManager.ALL_TASK_NAMES.size() -1;
+        clickListItemAt(lastExpectedListItemIndex);
     }
 
     @Test
