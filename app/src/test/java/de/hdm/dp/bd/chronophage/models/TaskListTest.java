@@ -53,7 +53,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void getAllTasksWithRecords_oneTaskWithRecordsOneWithout_returnsListWithTaskWithRecord() {
+    public void getAllTasksWithRecords_oneTaskWithRecordsOneWithout_onlyTaskWithRecordIncluded() {
         //test setup
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
@@ -69,7 +69,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void getFilteredTasksWithRecordsAfter_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
+    public void getFilteredTasksWithRecordsAfter_oneTaskAfterOnlyOneBefore_onlyAfterTaskIncluded() {
         //testSetup 1: setup Tasks that will be returned after filtering
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
@@ -108,7 +108,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void getFilteredTasksWithRecordsBefore_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
+    public void getFilteredTasksWithRecordsBefore_oneTaskBeforeOnlyOneAfter_onlyBeforeTaskIncl() {
         //testSetup 1: setup Tasks that will be returned after filtering
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();

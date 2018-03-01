@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
     public void taskList_activityStarted_isDisplayed() {
@@ -37,7 +37,7 @@ public class MainActivityTest {
 
         final String taskName = ALL_TASK_NAMES.get(taskPosition);
         onView(withText(taskName + " started."))
-            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+            .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
             .check(matches(isDisplayed()));
         //click again to stop task and thereby reset its state
         Thread.sleep(1000);
@@ -54,7 +54,7 @@ public class MainActivityTest {
         final String taskName = ALL_TASK_NAMES.get(taskPosition);
 
         onView(withText(taskName + " stopped."))
-            .inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView()))))
+            .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
             .check(matches(isDisplayed()));
     }
 

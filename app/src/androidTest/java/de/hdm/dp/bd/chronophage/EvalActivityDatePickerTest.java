@@ -25,12 +25,12 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class EvalActivityDatePickerTest {
     @Rule
-    public ActivityTestRule<EvalActivity> eActivityRule = new ActivityTestRule<>(EvalActivity.class);
+    public ActivityTestRule<EvalActivity> rule = new ActivityTestRule<>(EvalActivity.class);
 
     @Test
     public void datePicker_startDateSelected_isDisplayedCorrectly() {
         selectStartDate(1);
-        final EvalActivity act = eActivityRule.getActivity();
+        final EvalActivity act = rule.getActivity();
         EditText startDateEditText = act.findViewById(R.id.startDateEditText);
         assertEquals("01.01.2018", startDateEditText.getText().toString());
     }
@@ -38,7 +38,7 @@ public class EvalActivityDatePickerTest {
     @Test
     public void datePicker_endDateSelected_isDisplayedCorrectly() {
         selectEndDate(2);
-        final EvalActivity act = eActivityRule.getActivity();
+        final EvalActivity act = rule.getActivity();
         EditText endDateEditText = act.findViewById(R.id.endDateEditText);
         assertEquals("02.01.2018", endDateEditText.getText().toString());
     }
@@ -49,7 +49,7 @@ public class EvalActivityDatePickerTest {
         selectStartDate(2);
 
         onView(withText("Start Date must be before end!"))
-            .inRoot(withDecorView(not(is(eActivityRule.getActivity().getWindow().getDecorView()))))
+            .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
             .check(matches(isDisplayed()));
     }
 
@@ -59,7 +59,7 @@ public class EvalActivityDatePickerTest {
         selectEndDate(1);
 
         onView(withText("End Date must be after start!"))
-            .inRoot(withDecorView(not(is(eActivityRule.getActivity().getWindow().getDecorView()))))
+            .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
             .check(matches(isDisplayed()));
     }
 
@@ -68,7 +68,7 @@ public class EvalActivityDatePickerTest {
         selectEndDate(1);
         selectStartDate(2);
 
-        final EvalActivity act = eActivityRule.getActivity();
+        final EvalActivity act = rule.getActivity();
         EditText startDateEditText = act.findViewById(R.id.startDateEditText);
         assertEquals("Start date", startDateEditText.getText().toString());
     }
@@ -78,7 +78,7 @@ public class EvalActivityDatePickerTest {
         selectStartDate(2);
         selectEndDate(1);
 
-        final EvalActivity act = eActivityRule.getActivity();
+        final EvalActivity act = rule.getActivity();
         EditText endDateEditText = act.findViewById(R.id.endDateEditText);
         assertEquals("End date", endDateEditText.getText().toString());
     }

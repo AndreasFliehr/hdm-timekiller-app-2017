@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import org.hamcrest.Matchers;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -47,7 +46,7 @@ public class EvalActivityPieChartTest {
     private int day;
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
     @BeforeClass
     public static void initTestDb() {
@@ -58,9 +57,9 @@ public class EvalActivityPieChartTest {
     @Before
     public void clearRecords() {
         dbManager.getWritableDatabase().delete(DbStatements
-                .TABLE_NAME_DURATION,
-            null,
-            null
+                        .TABLE_NAME_DURATION,
+                null,
+                null
         );
     }
 
@@ -113,7 +112,8 @@ public class EvalActivityPieChartTest {
     }
 
     @Test
-    public void pieChart_startAndEndDateSelectedOutOfRange_containsNoValues() throws InterruptedException {
+    public void pieChart_startAndEndDateSelectedOutOfRange_containsNoValues()
+            throws InterruptedException {
         preparePieChartTest();
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
@@ -128,7 +128,8 @@ public class EvalActivityPieChartTest {
     }
 
     @Test
-    public void pieChart_startAndEndDateSelectedOutOfRange_containsNoLabels() throws InterruptedException {
+    public void pieChart_startAndEndDateSelectedOutOfRange_containsNoLabels()
+            throws InterruptedException {
         preparePieChartTest();
 
         onView(withContentDescription("Open navigation drawer")).perform(click());
@@ -143,7 +144,8 @@ public class EvalActivityPieChartTest {
     }
 
     @Test
-    public void pieChart_startAndEndDateSelectedInRange_containsValues() throws InterruptedException {
+    public void pieChart_startAndEndDateSelectedInRange_containsValues()
+            throws InterruptedException {
         clickFirstThreeItems();
         clickFirstThreeItems();
 
@@ -160,7 +162,8 @@ public class EvalActivityPieChartTest {
     }
 
     @Test
-    public void pieChart_startAndEndDateSelectedInRange_containsLabels() throws InterruptedException {
+    public void pieChart_startAndEndDateSelectedInRange_containsLabels()
+            throws InterruptedException {
         clickFirstThreeItems();
         clickFirstThreeItems();
 
@@ -173,11 +176,13 @@ public class EvalActivityPieChartTest {
         Activity act = getCurrentActivity();
         PieChart pieChart = act.findViewById(R.id.chart);
         ChartData chartData = pieChart.getData();
-        ArrayList<String> expectedTaskNames = new ArrayList<String>() {{
-            add("Internet");
-            add("Lesen");
-            add("Mails");
-        }};
+        ArrayList<String> expectedTaskNames = new ArrayList<String>() {
+            {
+                add("Internet");
+                add("Lesen");
+                add("Mails");
+            }
+        };
         assertEquals(expectedTaskNames, chartData.getXVals());
     }
 
@@ -201,9 +206,9 @@ public class EvalActivityPieChartTest {
 
     private void clickListItemAt(int atPosition) {
         onData(anything())
-            .inAdapterView(withId(R.id.listView))
-            .atPosition(atPosition)
-            .perform(click());
+                .inAdapterView(withId(R.id.listView))
+                .atPosition(atPosition)
+                .perform(click());
     }
 
     private void getCurrentDate() {
@@ -218,14 +223,14 @@ public class EvalActivityPieChartTest {
     private void selectStartDate(int year, int month, int day) {
         onView(withId(R.id.startDateEditText)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-            .perform(PickerActions.setDate(year, month, day));
+                .perform(PickerActions.setDate(year, month, day));
         onView(withId(android.R.id.button1)).perform(click());
     }
 
     private void selectEndDate(int year, int month, int day) {
         onView(withId(R.id.endDateEditText)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-            .perform(PickerActions.setDate(year, month, day));
+                .perform(PickerActions.setDate(year, month, day));
         onView(withId(android.R.id.button1)).perform(click());
     }
 
@@ -245,23 +250,21 @@ public class EvalActivityPieChartTest {
     }
 
     private Activity defineActivity(View view) {
-        Activity a = null;
-        if
-            (view.getContext().getClass().getName().contains(
-            "com.android.internal.policy.DecorContext"
-        )) {
+        final boolean viewContainsDecorContext = view.getContext().getClass().getName()
+                .contains("com.android.internal.policy.DecorContext");
+        if (viewContainsDecorContext) {
             try {
                 Field field = view.getContext().getClass().getDeclaredField("mPhoneWindow");
                 field.setAccessible(true);
                 Object obj = field.get(view.getContext());
                 java.lang.reflect.Method m1 = obj.getClass().getMethod("getContext");
-                a = (Activity) (m1.invoke(obj));
+                return (Activity) (m1.invoke(obj));
             } catch (Exception e) {
                 e.printStackTrace();
+                return null;
             }
         } else {
-            a = (Activity) view.getContext();
+            return (Activity) view.getContext();
         }
-        return a;
     }
 }
