@@ -4,13 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 
 public class DbManager extends SQLiteOpenHelper {
+<<<<<<< HEAD
     private static int DATABASE_VERSION = 1;
 
     /**

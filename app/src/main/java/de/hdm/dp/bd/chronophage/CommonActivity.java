@@ -35,7 +35,7 @@ public abstract class CommonActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    protected void createNavigationBars() {
+    void createNavigationBars() {
         createDrawer();
         createNavigation();
     }

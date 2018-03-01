@@ -10,17 +10,14 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
 import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,8 +26,8 @@ import java.util.Date;
 import java.util.List;
 
 public class EvalActivity extends CommonActivity {
-    public static final String START_DATE_DEFAULT_TEXT = "Start date";
-    public static final String END_DATE_DEFAULT_TEXT = "End date";
+    private static final String START_DATE_DEFAULT_TEXT = "Start date";
+    private static final String END_DATE_DEFAULT_TEXT = "End date";
     private EditText startDateEditText;
     private EditText endDateEditText;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");

@@ -1,13 +1,12 @@
 package de.hdm.dp.bd.chronophage.models;
 
-import org.junit.Before;
-import org.junit.Test;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 
 import java.time.Instant;
 import java.util.Date;
-
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
 
 public class RecordTest {
     private Record record;

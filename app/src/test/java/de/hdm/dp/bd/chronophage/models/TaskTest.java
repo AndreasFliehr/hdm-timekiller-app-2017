@@ -1,15 +1,14 @@
 package de.hdm.dp.bd.chronophage.models;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.time.Instant;
-import java.util.Date;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.time.Instant;
+import java.util.Date;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TaskTest {
     private Task task;
@@ -68,7 +67,8 @@ public class TaskTest {
     }
 
     @Test
-    public void getMostRecentRecord_twoRecordsTwiceCalls_returnsDifferentRecordSecondTimeThanFirst() throws Exception {
+    public void getMostRecentRecord_twoRecordsTwiceCalls_returnsDifferentRecordSecondTimeThanFirst()
+            throws Exception {
         task.start();
         Thread.sleep(100);
         task.stop();
@@ -94,7 +94,8 @@ public class TaskTest {
     }
 
     @Test
-    public void getTaskWithRecordsBefore_onlyRecordsBefore_overallDurationIsUnchanged() throws Exception {
+    public void getTaskWithRecordsBefore_onlyRecordsBefore_overallDurationIsUnchanged()
+            throws Exception {
         //setup: record once before getting date
         task.start();
         Thread.sleep(100);
@@ -108,7 +109,8 @@ public class TaskTest {
     }
 
     @Test
-    public void getTaskWithRecordsBefore_oneRecodBeforeOneAfter_onlyDurationOfRecordBeforeReturned() throws Exception {
+    public void getTaskWithRecordsBefore_oneRecodBeforeOneAfter_onlyDurationOfRecordBeforeReturned()
+            throws Exception {
         //setup: record once before getting date
         task.start();
         Thread.sleep(100);
@@ -140,7 +142,8 @@ public class TaskTest {
     }
 
     @Test
-    public void getTaskWithRecordsAfter_onlyRecordsAfter_overallDurationIsUnchanged() throws Exception {
+    public void getTaskWithRecordsAfter_onlyRecordsAfter_overallDurationIsUnchanged()
+            throws Exception {
         //setup: record once before getting date
         final Date now = Date.from(Instant.now());
         Thread.sleep(100);
@@ -154,7 +157,8 @@ public class TaskTest {
     }
 
     @Test
-    public void getTaskWithRecordsAfter_oneRecodBeforeOneAfter_onlyDurationOfRecordAfterReturned() throws Exception {
+    public void getTaskWithRecordsAfter_oneRecodBeforeOneAfter_onlyDurationOfRecordAfterReturned()
+            throws Exception {
         //setup: record once before getting date
         task.start();
         Thread.sleep(100);

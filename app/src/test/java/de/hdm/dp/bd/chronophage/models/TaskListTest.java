@@ -1,20 +1,20 @@
 package de.hdm.dp.bd.chronophage.models;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 
+import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import de.hdm.dp.bd.chronophage.models.db.TaskListProvider;
-
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
 
 public class TaskListTest {
     private Task taskMock;
@@ -53,7 +53,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void getAllTasksWithRecords_oneTaskWithRecordsOneWithout_returnsListWithTaskWithRecord() {
+    public void getAllTasksWithRecords_oneTaskWithRecordsOneWithout_onlyTaskWithRecordIncluded() {
         //test setup
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
@@ -69,7 +69,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void getFilteredTasksWithRecordsAfter_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
+    public void getFilteredTasksWithRecordsAfter_oneTaskAfterOnlyOneBefore_onlyAfterTaskIncluded() {
         //testSetup 1: setup Tasks that will be returned after filtering
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
@@ -108,7 +108,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void getFilteredTasksWithRecordsBefore_oneTasksWIthRecordsAfterDateOneWithOnesBefore_returnsListWithTaskWithRecord() {
+    public void getFilteredTasksWithRecordsBefore_oneTaskBeforeOnlyOneAfter_onlyBeforeTaskIncl() {
         //testSetup 1: setup Tasks that will be returned after filtering
         Task withRecords = Mockito.mock(Task.class);
         doReturn(1L).when(withRecords).getOverallDuration();
