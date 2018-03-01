@@ -60,7 +60,6 @@ public class EvalActivityPieChartTest {
     }
 
     @Before
-    @After
     public void clearRecords() {
         dbManager.getWritableDatabase().delete(DbStatements
                 .TABLE_NAME_DURATION,
