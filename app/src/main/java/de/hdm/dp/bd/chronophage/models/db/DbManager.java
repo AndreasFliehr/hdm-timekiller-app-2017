@@ -9,8 +9,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class DbManager extends SQLiteOpenHelper {
     private static int DATABASE_VERSION = 1;
+
+    /**
+     * Suppress FingBug-Warning that can't be fixed with Android-Api Version 23.
+     * In Android-Versions higher than 23 use Roboelectric-framework to change database-name.
+     */
+    @SuppressWarnings("MS_SHOULD_BE_FINAL")
     public static String DATABASE_NAME = "example.db";
     public static final List<String> ALL_TASK_NAMES = Collections.unmodifiableList(
         new ArrayList<String>() {
