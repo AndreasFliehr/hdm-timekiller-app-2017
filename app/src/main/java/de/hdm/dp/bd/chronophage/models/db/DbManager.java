@@ -10,7 +10,6 @@ import java.util.List;
 
 
 public class DbManager extends SQLiteOpenHelper {
-<<<<<<< HEAD
     private static int DATABASE_VERSION = 1;
 
     /**
