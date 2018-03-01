@@ -32,11 +32,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void taskList_activityStarted_hasDefaultValues() {
-        clickListItemAt(2);
-    }
-
-    @Test
     public void taskList_onItemClick_toggleItemStart() throws InterruptedException {
         final int taskPosition = 0;
         clickListItemAt(taskPosition);
