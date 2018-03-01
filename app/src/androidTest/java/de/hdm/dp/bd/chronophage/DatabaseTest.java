@@ -19,8 +19,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class DatabaseTest {
-    private DbManager dbManager = new DbManager(TARGET_CONTEXT);
-    private DbCalls dbCalls = new DbCalls();
+    private final DbManager dbManager = new DbManager(TARGET_CONTEXT);
+    private final DbCalls dbCalls = new DbCalls();
     private static final Context TARGET_CONTEXT = getTargetContext();
     private final Date start = new Date(1000);
 

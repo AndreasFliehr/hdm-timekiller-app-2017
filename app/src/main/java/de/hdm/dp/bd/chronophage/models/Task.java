@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Task {
-    private long id;
-    private String name;
+    private final long id;
+    private final String name;
     private boolean active;
     private Record activeRecord = null;
     private List<Record> records = new ArrayList<>();

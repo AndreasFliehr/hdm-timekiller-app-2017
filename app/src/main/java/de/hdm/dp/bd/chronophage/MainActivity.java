@@ -6,13 +6,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.TaskList;
 import de.hdm.dp.bd.chronophage.models.db.TaskListProviderDbImpl;
 
 public class MainActivity extends CommonActivity {
-    TaskList list;
+    private TaskList list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

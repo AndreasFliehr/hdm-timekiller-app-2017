@@ -4,13 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class DbManager extends SQLiteOpenHelper {
-    private static int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 1;
     public static String DATABASE_NAME = "example.db";
     public static final List<String> ALL_TASK_NAMES = Collections.unmodifiableList(
         new ArrayList<String>() {

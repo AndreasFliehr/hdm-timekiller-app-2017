@@ -40,7 +40,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 public class EvalActivityPieChartTest {
-    private DbManager dbManager = new DbManager(TARGET_CONTEXT);
+    private final DbManager dbManager = new DbManager(TARGET_CONTEXT);
     private static final Context TARGET_CONTEXT = getTargetContext();
     private int year;
     private int month;
