@@ -1,15 +1,14 @@
 package de.hdm.dp.bd.chronophage.models;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.time.Instant;
-import java.util.Date;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.time.Instant;
+import java.util.Date;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TaskTest {
     private Task task;

@@ -1,25 +1,22 @@
 package de.hdm.dp.bd.chronophage;
 
+import static android.support.test.InstrumentationRegistry.getTargetContext;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import android.content.Context;
 import android.database.Cursor;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Date;
-
 import de.hdm.dp.bd.chronophage.models.Record;
 import de.hdm.dp.bd.chronophage.models.Task;
 import de.hdm.dp.bd.chronophage.models.db.DbCalls;
 import de.hdm.dp.bd.chronophage.models.db.DbManager;
 import de.hdm.dp.bd.chronophage.models.db.DbStatements;
-
-import static android.support.test.InstrumentationRegistry.getTargetContext;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.util.Date;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class DatabaseTest {
     private DbManager dbManager = new DbManager(TARGET_CONTEXT);

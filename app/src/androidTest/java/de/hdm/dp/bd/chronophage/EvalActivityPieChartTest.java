@@ -1,34 +1,5 @@
 package de.hdm.dp.bd.chronophage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.support.test.espresso.NoMatchingViewException;
-import android.support.test.espresso.ViewAssertion;
-import android.support.test.espresso.contrib.PickerActions;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.view.View;
-import android.widget.DatePicker;
-
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.ChartData;
-
-import org.hamcrest.Matchers;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
-import de.hdm.dp.bd.chronophage.models.db.DbManager;
-import de.hdm.dp.bd.chronophage.models.db.DbStatements;
-
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -41,6 +12,31 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static de.hdm.dp.bd.chronophage.models.db.DbManager.ALL_TASK_NAMES;
 import static org.hamcrest.CoreMatchers.anything;
 import static org.junit.Assert.assertEquals;
+
+import android.app.Activity;
+import android.content.Context;
+import android.support.test.espresso.NoMatchingViewException;
+import android.support.test.espresso.ViewAssertion;
+import android.support.test.espresso.contrib.PickerActions;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
+import android.view.View;
+import android.widget.DatePicker;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.ChartData;
+import de.hdm.dp.bd.chronophage.models.db.DbManager;
+import de.hdm.dp.bd.chronophage.models.db.DbStatements;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import org.hamcrest.Matchers;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 public class EvalActivityPieChartTest {
