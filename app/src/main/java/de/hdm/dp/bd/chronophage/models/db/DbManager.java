@@ -17,8 +17,8 @@ public class DbManager extends SQLiteOpenHelper {
      * In Android-Versions higher than 23 use Roboelectric-framework to change database-name.
      */
     @edu.umd.cs.findbugs.annotations.SuppressFBWarnings(
-        value="MS_SHOULD_BE_FINAL",
-        justification="Can't be fixed in Android-API 23"
+        value = "MS_SHOULD_BE_FINAL",
+        justification = "Can't be fixed in Android-API 23"
     )
     public static String DATABASE_NAME = "example.db";
     public static final List<String> ALL_TASK_NAMES = Collections.unmodifiableList(
@@ -59,6 +59,4 @@ public class DbManager extends SQLiteOpenHelper {
                 values);
         }
     }
-
-
 }
