@@ -16,10 +16,10 @@ public class DbManager extends SQLiteOpenHelper {
      * Suppress FingBug-Warning that can't be fixed with Android-Api Version 23.
      * In Android-Versions higher than 23 use Roboelectric-framework to change database-name.
      */
-    @SuppressWarnings({
-        "MS_SHOULD_BE_FINAL",
-        "URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD"
-    })
+    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings(
+        value="MS_SHOULD_BE_FINAL",
+        justification="Can't be fixed in Android-API 23"
+    )
     public static String DATABASE_NAME = "example.db";
     public static final List<String> ALL_TASK_NAMES = Collections.unmodifiableList(
         new ArrayList<String>() {
